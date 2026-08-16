@@ -68,23 +68,40 @@ header h1 { font-size: 18px; font-weight: 700; }
 .note-box { background: #f9fafb; border-left: 4px solid var(--primary); padding: 10px 12px; font-size: 13.5px; color: #374151; line-height: 1.5; margin: 12px 0; border-radius: 0 8px 8px 0; white-space: pre-line; }
 .modal-location { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px; font-size: 13px; font-weight: 600; color: var(--primary); }
 .map-link { display: inline-flex; color: var(--primary); font-size: 12px; font-weight: 500; text-decoration: underline; text-underline-offset: 2px; }
+.resource-link { display: none; width: fit-content; margin-bottom: 4px; color: var(--primary); font-size: 13px; font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
 
-/* 景點介紹 */
+/* 購物指南 */
 .location-intro { margin-bottom: 16px; color: var(--text-sub); font-size: 13px; line-height: 1.6; }
 .location-group { margin-bottom: 22px; }
 .location-group-title { margin: 0 4px 9px; font-size: 14px; color: var(--text-sub); }
+.location-group-image { display: block; width: 100%; height: auto; margin-bottom: 10px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
 .location-card { margin-bottom: 8px; overflow: hidden; background: var(--card-bg); border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
 .location-card summary { display: flex; align-items: center; gap: 10px; padding: 14px; cursor: pointer; list-style: none; }
 .location-card summary::-webkit-details-marker { display: none; }
 .location-icon { display: grid; flex: 0 0 36px; width: 36px; height: 36px; place-items: center; background: var(--primary-light); border-radius: 10px; font-size: 18px; }
 .location-heading { flex: 1; min-width: 0; }
 .location-name { color: var(--text-main); font-size: 14px; font-weight: 700; }
-.location-jp { margin-top: 2px; overflow: hidden; color: var(--text-sub); font-size: 11.5px; font-weight: 500; text-overflow: ellipsis; white-space: nowrap; }
+.location-tips { margin-top: 2px; overflow: hidden; color: var(--text-sub); font-size: 11.5px; font-weight: 500; text-overflow: ellipsis; white-space: nowrap; }
 .location-chevron { color: var(--text-sub); font-size: 16px; transition: transform 0.2s ease; }
 .location-card[open] .location-chevron { transform: rotate(90deg); }
 .location-details { padding: 0 14px 14px 60px; }
 .location-details p { color: #374151; font-size: 13px; line-height: 1.65; }
 .location-map-link { display: inline-flex; margin-top: 9px; color: var(--primary); font-size: 12px; font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+.location-extra { margin-top: 12px; padding-top: 12px; border-top: 1px solid #e5e7eb; }
+.location-extra-title { margin-bottom: 5px; color: var(--text-main); font-size: 12.5px; font-weight: 700; }
+.location-extra-text { color: #374151; font-size: 12.5px; line-height: 1.6; white-space: pre-line; }
+.location-extra-link { display: flex; width: fit-content; margin-top: 6px; color: var(--primary); font-size: 12px; font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+.location-extra-image { display: block; width: min(180px, 100%); height: auto; margin-top: 8px; border: 1px solid #e5e7eb; border-radius: 10px; cursor: zoom-in; }
+.location-table-wrap { width: 100%; margin-top: 8px; overflow-x: auto; border: 1px solid #e5e7eb; border-radius: 8px; }
+.location-table { width: 100%; min-width: 560px; border-collapse: collapse; background: #fff; font-size: 11.5px; }
+.location-table th, .location-table td { padding: 9px; border-right: 1px solid #e5e7eb; border-bottom: 1px solid #e5e7eb; text-align: left; vertical-align: top; line-height: 1.55; white-space: pre-line; }
+.location-table th { background: var(--primary-light); color: var(--primary); font-weight: 700; white-space: nowrap; }
+.location-table th:last-child, .location-table td:last-child { border-right: none; }
+.location-table tbody tr:last-child td { border-bottom: none; }
+.image-lightbox { position: fixed; inset: 0; z-index: 300; display: none; align-items: center; justify-content: center; padding: 24px; background: rgba(0,0,0,0.85); }
+.image-lightbox.active { display: flex; }
+.image-lightbox img { max-width: 100%; max-height: 88vh; object-fit: contain; border-radius: 8px; }
+.image-lightbox-close { position: absolute; top: 14px; right: 14px; width: 36px; height: 36px; border: none; border-radius: 50%; background: rgba(255,255,255,0.95); color: #111827; font-size: 24px; line-height: 1; cursor: pointer; }
 
 /* Checklist */
 .checklist-group { margin-bottom: 16px; }

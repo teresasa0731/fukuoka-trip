@@ -24,5 +24,6 @@ const MAP_LINKS = {
   "皿倉山夜景": "https://maps.app.goo.gl/yq4b5fFym5vxSXmV8",
 
   // 周邊景點
-  "唐吉訶德福岡天神本店": "https://www.google.com/maps/search/?api=1&query=%E3%83%89%E3%83%B3%E3%83%BB%E3%82%AD%E3%83%9B%E3%83%BC%E3%83%86%E7%A6%8F%E5%B2%A1%E5%A4%A9%E7%A5%9E%E6%9C%AC%E5%BA%97%20%E7%A6%8F%E5%B2%A1%E7%9C%8C%E7%A6%8F%E5%B2%A1%E5%B8%82%E4%B8%AD%E5%A4%AE%E5%8C%BA%E4%BB%8A%E6%B3%891-20-17"
+  "唐吉訶德福岡天神本店": "https://maps.app.goo.gl/dxv3Gg92Yoa4Z8YD9",
+  "大國藥妝天神南店": "https://maps.app.goo.gl/azhwetfPw8KXfMFi6",
 };

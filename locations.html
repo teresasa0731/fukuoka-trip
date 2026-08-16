@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>福岡家族之旅 - 景點介紹</title>
+  <title>福岡家族之旅 - 購物指南</title>
   <link rel="stylesheet" href="style.css">
   <meta name="apple-mobile-web-app-capable" content="yes">
 </head>
@@ -13,61 +13,180 @@
   </header>
 
   <main class="container">
-    <p class="location-intro">📍 景點介紹<br>點選地點即可展開介紹與 Google Maps 導航。</p>
+    <p class="location-intro">📍 購物指南<br>請注意！是免稅不是免費！</p>
     <div id="location-list"></div>
   </main>
+
+  <div id="image-lightbox" class="image-lightbox" onclick="closeImage(event)" aria-hidden="true">
+    <button class="image-lightbox-close" type="button" onclick="closeImage()" aria-label="關閉圖片">×</button>
+    <img id="image-lightbox-content" src="" alt="">
+  </div>
 
   <nav class="bottom-nav">
     <a href="index.html" class="nav-item"><span class="icon">🏠</span><span>首頁</span></a>
     <a href="itinerary.html" class="nav-item"><span class="icon">📅</span><span>行程</span></a>
     <a href="checklist.html" class="nav-item"><span class="icon">🧳</span><span>行李清單</span></a>
-    <a href="locations.html" class="nav-item active"><span class="icon">📍</span><span>景點介紹</span></a>
+    <a href="locations.html" class="nav-item active"><span class="icon">📍</span><span>購物指南</span></a>
   </nav>
 
   <script src="maps.js"></script>
   <script>
     const LOCATION_GROUPS = [
       {
-        title: '✈️ 機場與住宿',
+        title: '🛍️ 一寸光陰一寸金 買到身上沒現金',
         locations: [
-          { key: '桃機T1', icon: '✈️', name: '桃園國際機場 第一航廈', jp: '台湾桃園国際空港 ターミナル1', description: '旅程出發與返台的機場。可在此查看集合位置與航廈導航。' },
-          { key: '福岡機場', icon: '🛬', name: '福岡機場 國際線', jp: '福岡空港 国際線', description: '抵達福岡與回程報到的機場。記得預留入境、領取行李及報到時間。' },
-          { key: '飯店', icon: '🏨', name: '住宿飯店', jp: 'ホテル', description: '旅程住宿與每日集合地點，也可作為寄放行李及返回休息的導航點。' }
+          { key: '福岡機場', icon: '🛬', name: '福岡機場 國際線', tips: '回程採買', description: '待編輯',
+            extras: [
+              {
+                title: '🎟️ 優惠資訊',
+                text: '結帳前記得出示優惠 QR Code。取得圖片後，可在這個區塊直接顯示。'
+                // image: 'images/donki-coupon-qr.png'
+              },
+              {
+                title: '💡 購物提醒',
+                text: '辦理免稅時請攜帶護照；優惠券與免稅是否能併用，以店舖現場規定為準。'
+              }
+            ]
+          },
+          { key: '天神地下街', icon: '🛍️', name: '天神地下街', tips: '10:00-20:00', description: '就在飯店旁邊',
+            extras: [
+              {
+                title: '🎟️ 優惠資訊',
+                text: '結帳前記得出示優惠 QR Code。取得圖片後，可在這個區塊直接顯示。'
+                // image: 'images/donki-coupon-qr.png'
+              },
+              {
+                title: '💡 購物提醒',
+                text: '辦理免稅時請攜帶護照；優惠券與免稅是否能併用，以店舖現場規定為準。'
+              }
+            ]
+          },
+          { key: '博多運河城', icon: '🏙️', name: '博多運河城', tips: '10:00-21:00', description: '櫛田神社前站，1號出口有空橋直通運河城',
+            extras: [
+              {
+                title: '💰 省錢小撇步',
+                text: '1. （紅色方形）單櫃消費含稅滿5500円以上，直接在店內退稅\n2. （橘色圓形）各櫃累積消費含稅滿5500円以上，到免稅櫃台進行退稅',
+                links: [
+                  {
+                    label: '各品牌退稅方式',
+                    url: 'https://canalcity.co.jp/zh-tw/taxfree'
+                  },
+                  {
+                    label: '部分店家出示護照可以9折',
+                    url: 'https://canalcity.co.jp/sale/detail/passportcampaign'
+                  }
+                ]
+              },
+              {
+                title: '購物小撇步',
+                text: '辦理免稅時請攜帶護照；優惠券與免稅是否能併用，以店舖現場規定為準。'
+              },
+              {
+                title: '🏬 分區必逛攻略',
+                table: {
+                  headers: ['區域', '必買品牌', '必吃美食'],
+                  rows: [
+                    [
+                      'Center Walk',
+                      'B1F\n・橡子共和國\n・JUMP SHOP\n・Ultraman World M78\n・THANKYOU MART\n・博多禮品店\n\n2F\n・迪士尼商店\n\n3F\n・THE NORTH FACE\n・ABC-MART\n\n4F\n・TAITO STATION',
+                      'B1F\n・星巴克\n・麥當勞\n\n4F\n・博多天婦羅 TAKAO\n\n5F\n・拉麵競技場'
+                    ],
+                    [
+                      'South Bldg.',
+                      'B1F\n・BANDAI Cross Store\n\n1F\n・GUNDAM BASE\n・GAP\n\n1～3F\n・Alpen FUKUOKA',
+                      '－'
+                    ],
+                    [
+                      'North Bldg.',
+                      '1F\n・松本清\n\n2F\n・WEGO\n\n3～4F\n・無印良品',
+                      'B1F\n・卡比咖啡廳\n・一蘭拉麵\n・電光石火'
+                    ],
+                    [
+                      'Grand Bldg.',
+                      '－',
+                      'B1F\n・KUOHKA 美食街'
+                    ]
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            key: '唐吉訶德福岡天神本店',
+            icon: '🐧',
+            name: '唐吉訶德 福岡天神本店',
+            tips: '24 hrs',
+            description: '離飯店最近的ㄟdonkidonki，西鐵福岡（天神）站步行約 6 分鐘。',
+            extras: [
+              {
+                title: '💰 省錢小撇步',
+                image: 'images/donki_coupon.jpg'
+              },
+              {
+                title: '💡 購物提醒',
+                text: '辦理免稅時請攜帶護照；優惠券與免稅是否能併用，以店舖現場規定為準。'
+              }
+            ]
+          },
+          { key: '大國藥妝天神南店', icon: '💊', name: '大國藥妝天神南店', tips: '10:05-23:50', description: '',
+            extras: [
+              {
+                title: '💰 省錢小撇步',
+                image: 'images/goico_coupon.jpg'
+              }
+            ]
+          },
+          { key: 'BicCamera', icon: '📷', name: 'BicCamera', tips: '', description: '',
+            extras: [
+              {
+                title: '💰 省錢小撇步',
+                image: 'images/biccamera_coupon.jpg'
+              },
+              {
+                title: '分店資訊',
+                links: [
+                  {
+                    label: '📍 福岡天神本店',
+                    url: 'https://example.com/store1'
+                  },
+                  {
+                    label: '📍 天神西通店',
+                    url: 'https://example.com/store2'
+                  },
+                  {
+                    label: '📍 中洲店',
+                    url: 'https://example.com/store3'
+                  }
+                ]
+              }
+            ]
+          },
+          { key: '松本清', icon: '💊', name: '松本清', tips: '', description: '藥妝與免稅資訊',
+            extras: [
+              {
+                title: '💰 省錢小撇步',
+                image: 'images/matsumoto_coupon.jpg'
+              }
+            ]
+          }
+
+
+        ],
+        image: 'images/medi.jpg',
+        imageAlt: '藥妝與免稅資訊',
+      },
+      {
+        title: '🍜 底哩雪斯',
+        locations: [
+          { key: '一蘭拉麵', icon: '🍜', name: '一蘭拉麵 天神西通店', tips: '一蘭ラーメン 天神西通り店', description: '知名豚骨拉麵連鎖店，提供個人化點餐與隔間座位。' },
+          { key: '博多一幸舍', icon: '🍜', name: '博多一幸舍 博多本店', tips: '博多一幸舎 博多本店', description: '另一家受歡迎的豚骨拉麵店，湯頭濃郁，適合喜愛重口味的旅客。' }
         ]
       },
       {
-        title: '9/15（二）天神與大濠公園',
+        title: '🎁 別講大道理 滿床伴手禮',
         locations: [
-          { key: 'QuilFaitBon', icon: '🍰', name: "水果派 Qu'il fait bon", jp: 'キル フェ ボン 福岡', description: '以當季水果塔聞名的甜點店，安排為抵達福岡後的彈性行程。' },
-          { key: '天神地下街', icon: '🛍️', name: '天神地下街', jp: '天神地下街', description: '位於天神市中心的地下商店街，適合逛街、用餐及雨天備案。' },
-          { key: '水炊橙', icon: '🍲', name: '博多水炊き專門 橙', jp: '博多水炊き 橙', description: '品嚐福岡代表料理水炊雞肉鍋的晚餐地點。' }
-        ]
-      },
-      {
-        title: '9/16（三）太宰府與博多',
-        locations: [
-          { key: '太宰府', icon: '⛩️', name: '太宰府天滿宮與表參道', jp: '太宰府天満宮', description: '供奉學問之神的知名神社；表參道可品嚐梅枝餅，也有特色商店與建築。' },
-          { key: '味之明太子', icon: '🍱', name: '味之明太子 太宰府店', jp: '味の明太子ふくや 太宰府店', description: '太宰府表參道上的明太子店，安排為午餐或伴手禮選購的彈性行程。' },
-          { key: '九州國立博物館', icon: '🏛️', name: '九州國立博物館', jp: '九州国立博物館', description: '鄰近太宰府天滿宮的國立博物館，可認識九州與亞洲文化交流的歷史。' },
-          { key: '博多運河城', icon: '🏙️', name: '博多運河城', jp: 'キャナルシティ博多', description: '結合購物、餐飲與娛樂的大型複合設施，安排為傍晚的彈性行程。' },
-          { key: '燒肉Sudo', icon: '🥩', name: '燒肉 sudo 春吉', jp: '焼肉 すどう 春吉', description: '晚餐燒肉餐廳，由店員協助掌握肉品最佳熟度。' }
-        ]
-      },
-      {
-        title: '9/17（四）北九州一日遊',
-        locations: [
-          { key: '藍瓶咖啡', icon: '☕', name: '藍瓶咖啡 天神店', jp: 'Blue Bottle Coffee 福岡天神', description: '位於天神的咖啡店，安排為一日遊出發前的彈性早餐行程。' },
-          { key: '博多集合點', icon: '🚌', name: '博多站集合點', jp: '博多駅', description: 'KKday 北九州一日遊的集合及回程下車地點，請提早抵達尋找導遊。' },
-          { key: '門司港', icon: '⚓', name: '門司港與唐戶市場', jp: '門司港レトロ・唐戸市場', description: '走訪復古港區與海鮮市場，可在此用午餐並欣賞關門海峽周邊景色。' },
-          { key: '小倉城', icon: '🏯', name: '小倉城', jp: '小倉城', description: '北九州市代表性的城郭景點，可參觀天守閣與周邊庭園。' },
-          { key: '北九州Outlet', icon: '🛍️', name: '北九州 Outlet', jp: 'THE OUTLETS KITAKYUSHU', description: '大型暢貨購物中心，本次安排購物及晚餐時間。' },
-          { key: '皿倉山夜景', icon: '🌃', name: '皿倉山夜景', jp: '皿倉山', description: '北九州知名夜景景點，可從山頂眺望市區與港灣燈火。' }
-        ]
-      },
-      {
-        title: '🧭 周邊景點',
-        locations: [
-          { key: '唐吉訶德福岡天神本店', icon: '🐧', name: '唐吉訶德 福岡天神本店', jp: 'ドン・キホーテ福岡天神本店', description: '位於天神、鄰近警固神社前路口的 24 小時綜合商店，販售食品、藥妝、日用品、家電與伴手禮。從西鐵福岡（天神）站步行約 6 分鐘。' }
+          { key: '伴手禮', icon: '🎁', name: '博多伴手禮店', tips: '博多お土産店', description: '提供各式博多特色伴手禮，適合購買回國贈送親友。' },
+          { key: '博多一幸舍', icon: '🍜', name: '博多一幸舍 博多本店', tips: '博多一幸舎 博多本店', description: '另一家受歡迎的豚骨拉麵店，湯頭濃郁，適合喜愛重口味的旅客。' }
         ]
       }
     ];
@@ -77,6 +196,7 @@
       list.innerHTML = LOCATION_GROUPS.map(group => `
         <section class="location-group">
           <h2 class="location-group-title">${group.title}</h2>
+          ${group.image ? `<img class="location-group-image" src="${group.image}" alt="${group.imageAlt || group.title}" loading="lazy">` : ''}
           ${group.locations.map(location => {
             const mapUrl = typeof MAP_LINKS !== 'undefined' ? MAP_LINKS[location.key] : '';
             return `
@@ -85,18 +205,55 @@
                   <span class="location-icon">${location.icon}</span>
                   <span class="location-heading">
                     <span class="location-name">${location.name}</span>
-                    <span class="location-jp">${location.jp}</span>
+                    <span class="location-tips">${location.tips}</span>
                   </span>
                   <span class="location-chevron">›</span>
                 </summary>
                 <div class="location-details">
                   <p>${location.description}</p>
+                  ${(location.extras || []).map(extra => `
+                    <div class="location-extra">
+                      <div class="location-extra-title">${extra.title}</div>
+                      ${extra.text ? `<div class="location-extra-text">${extra.text}</div>` : ''}
+                      ${extra.image ? `<img class="location-extra-image" src="${extra.image}" alt="${extra.imageAlt || extra.title}" loading="lazy" onclick="openImage(this)" title="點擊放大">` : ''}
+                      ${extra.table ? `
+                        <div class="location-table-wrap">
+                          <table class="location-table">
+                            <thead><tr>${extra.table.headers.map(header => `<th>${header}</th>`).join('')}</tr></thead>
+                            <tbody>${extra.table.rows.map(row => `<tr>${row.map(cell => `<td>${cell}</td>`).join('')}</tr>`).join('')}</tbody>
+                          </table>
+                        </div>` : ''}
+                      ${extra.link ? `<a class="location-extra-link" href="${extra.link}" target="_blank" rel="noopener noreferrer">${extra.linkLabel || '查看相關資訊'}</a>` : ''}
+                      ${(extra.links || []).map(item => `<a class="location-extra-link" href="${item.url}" target="_blank" rel="noopener noreferrer">${item.label || '查看相關資訊'}</a>`).join('')}
+                    </div>`).join('')}
                   ${mapUrl ? `<a class="location-map-link" href="${mapUrl}" target="_blank" rel="noopener noreferrer">📍 開啟導航</a>` : ''}
                 </div>
               </details>`;
           }).join('')}
         </section>`).join('');
     }
+
+    function openImage(image) {
+      const lightbox = document.getElementById('image-lightbox');
+      const enlargedImage = document.getElementById('image-lightbox-content');
+      enlargedImage.src = image.src;
+      enlargedImage.alt = image.alt;
+      lightbox.classList.add('active');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeImage(event) {
+      if (event && event.target.id !== 'image-lightbox') return;
+      const lightbox = document.getElementById('image-lightbox');
+      lightbox.classList.remove('active');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') closeImage();
+    });
 
     renderLocations();
   </script>
