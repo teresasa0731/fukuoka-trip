@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>福岡家族之旅 - 景點介紹</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+</head>
+<body>
+  <header>
+    <h1>福岡家族之旅 🇯🇵</h1>
+  </header>
+
+  <main class="container">
+    <p class="location-intro">📍 景點介紹<br>點選地點即可展開介紹與 Google Maps 導航。</p>
+    <div id="location-list"></div>
+  </main>
+
+  <nav class="bottom-nav">
+    <a href="index.html" class="nav-item"><span class="icon">🏠</span><span>首頁</span></a>
+    <a href="itinerary.html" class="nav-item"><span class="icon">📅</span><span>行程</span></a>
+    <a href="checklist.html" class="nav-item"><span class="icon">🧳</span><span>行李清單</span></a>
+    <a href="locations.html" class="nav-item active"><span class="icon">📍</span><span>景點介紹</span></a>
+  </nav>
+
+  <script src="maps.js"></script>
+  <script>
+    const LOCATION_GROUPS = [
+      {
+        title: '✈️ 機場與住宿',
+        locations: [
+          { key: '桃機T1', icon: '✈️', name: '桃園國際機場 第一航廈', jp: '台湾桃園国際空港 ターミナル1', description: '旅程出發與返台的機場。可在此查看集合位置與航廈導航。' },
+          { key: '福岡機場', icon: '🛬', name: '福岡機場 國際線', jp: '福岡空港 国際線', description: '抵達福岡與回程報到的機場。記得預留入境、領取行李及報到時間。' },
+          { key: '飯店', icon: '🏨', name: '住宿飯店', jp: 'ホテル', description: '旅程住宿與每日集合地點，也可作為寄放行李及返回休息的導航點。' }
+        ]
+      },
+      {
+        title: '9/15（二）天神與大濠公園',
+        locations: [
+          { key: 'QuilFaitBon', icon: '🍰', name: "水果派 Qu'il fait bon", jp: 'キル フェ ボン 福岡', description: '以當季水果塔聞名的甜點店，安排為抵達福岡後的彈性行程。' },
+          { key: '天神地下街', icon: '🛍️', name: '天神地下街', jp: '天神地下街', description: '位於天神市中心的地下商店街，適合逛街、用餐及雨天備案。' },
+          { key: '水炊橙', icon: '🍲', name: '博多水炊き專門 橙', jp: '博多水炊き 橙', description: '品嚐福岡代表料理水炊雞肉鍋的晚餐地點。' }
+        ]
+      },
+      {
+        title: '9/16（三）太宰府與博多',
+        locations: [
+          { key: '太宰府', icon: '⛩️', name: '太宰府天滿宮與表參道', jp: '太宰府天満宮', description: '供奉學問之神的知名神社；表參道可品嚐梅枝餅，也有特色商店與建築。' },
+          { key: '味之明太子', icon: '🍱', name: '味之明太子 太宰府店', jp: '味の明太子ふくや 太宰府店', description: '太宰府表參道上的明太子店，安排為午餐或伴手禮選購的彈性行程。' },
+          { key: '九州國立博物館', icon: '🏛️', name: '九州國立博物館', jp: '九州国立博物館', description: '鄰近太宰府天滿宮的國立博物館，可認識九州與亞洲文化交流的歷史。' },
+          { key: '博多運河城', icon: '🏙️', name: '博多運河城', jp: 'キャナルシティ博多', description: '結合購物、餐飲與娛樂的大型複合設施，安排為傍晚的彈性行程。' },
+          { key: '燒肉Sudo', icon: '🥩', name: '燒肉 sudo 春吉', jp: '焼肉 すどう 春吉', description: '晚餐燒肉餐廳，由店員協助掌握肉品最佳熟度。' }
+        ]
+      },
+      {
+        title: '9/17（四）北九州一日遊',
+        locations: [
+          { key: '藍瓶咖啡', icon: '☕', name: '藍瓶咖啡 天神店', jp: 'Blue Bottle Coffee 福岡天神', description: '位於天神的咖啡店，安排為一日遊出發前的彈性早餐行程。' },
+          { key: '博多集合點', icon: '🚌', name: '博多站集合點', jp: '博多駅', description: 'KKday 北九州一日遊的集合及回程下車地點，請提早抵達尋找導遊。' },
+          { key: '門司港', icon: '⚓', name: '門司港與唐戶市場', jp: '門司港レトロ・唐戸市場', description: '走訪復古港區與海鮮市場，可在此用午餐並欣賞關門海峽周邊景色。' },
+          { key: '小倉城', icon: '🏯', name: '小倉城', jp: '小倉城', description: '北九州市代表性的城郭景點，可參觀天守閣與周邊庭園。' },
+          { key: '北九州Outlet', icon: '🛍️', name: '北九州 Outlet', jp: 'THE OUTLETS KITAKYUSHU', description: '大型暢貨購物中心，本次安排購物及晚餐時間。' },
+          { key: '皿倉山夜景', icon: '🌃', name: '皿倉山夜景', jp: '皿倉山', description: '北九州知名夜景景點，可從山頂眺望市區與港灣燈火。' }
+        ]
+      },
+      {
+        title: '🧭 周邊景點',
+        locations: [
+          { key: '唐吉訶德福岡天神本店', icon: '🐧', name: '唐吉訶德 福岡天神本店', jp: 'ドン・キホーテ福岡天神本店', description: '位於天神、鄰近警固神社前路口的 24 小時綜合商店，販售食品、藥妝、日用品、家電與伴手禮。從西鐵福岡（天神）站步行約 6 分鐘。' }
+        ]
+      }
+    ];
+
+    function renderLocations() {
+      const list = document.getElementById('location-list');
+      list.innerHTML = LOCATION_GROUPS.map(group => `
+        <section class="location-group">
+          <h2 class="location-group-title">${group.title}</h2>
+          ${group.locations.map(location => {
+            const mapUrl = typeof MAP_LINKS !== 'undefined' ? MAP_LINKS[location.key] : '';
+            return `
+              <details class="location-card">
+                <summary>
+                  <span class="location-icon">${location.icon}</span>
+                  <span class="location-heading">
+                    <span class="location-name">${location.name}</span>
+                    <span class="location-jp">${location.jp}</span>
+                  </span>
+                  <span class="location-chevron">›</span>
+                </summary>
+                <div class="location-details">
+                  <p>${location.description}</p>
+                  ${mapUrl ? `<a class="location-map-link" href="${mapUrl}" target="_blank" rel="noopener noreferrer">📍 開啟導航</a>` : ''}
+                </div>
+              </details>`;
+          }).join('')}
+        </section>`).join('');
+    }
+
+    renderLocations();
+  </script>
+</body>
+</html>
