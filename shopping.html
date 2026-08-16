@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>福岡家族之旅 - 推薦購物清單</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+</head>
+<body>
+
+  <header>
+    <h1>福岡家族之旅 🇯🇵</h1>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <div class="card-title">🛍️ 推薦購物與伴手禮清單</div>
+      <p style="font-size: 12px; color: var(--text-sub); margin-bottom: 12px;">點擊項目可進行勾選，狀態會自動記憶在手機本機。</p>
+
+      <!-- 伴手禮名產 -->
+      <div class="checklist-group">
+        <h3>🍡 福岡人氣伴手禮</h3>
+        <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"> <span>福砂屋 / 長崎蛋糕（底層砂糖顆粒）</span></label>
+        <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"> <span>博多仙貝 めんべい (Menbei) 明太子仙貝</span></label>
+        <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"> <span>東雲堂 二瓦煎餅 (Niwaraka Senbei)</span></label>
+        <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"> <span>博多通りもん (Toruimon) 奶油饅頭</span></label>
+        <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"> <span>一蘭拉麵 博多細麵外帶盒（天神/博多限售）</span></label>
+        <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"> <span>味之明太子 ふくや (Fukuya) 罐裝明太子油漬</span></label>
+      </div>
+
+      <!-- 藥妝與美妝 -->
+      <div class="checklist-group">
+        <h3>💄 藥妝與個人用品</h3>
+        <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"> <span>常備藥品（合利他命 / 太田胃散 / EVE）</span></label>
+        <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"> <span>防曬乳與護手霜</span></label>
+        <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"> <span>日本特色面膜與美妝用品</span></label>
+      </div>
+
+      <!-- 零食與超市 -->
+      <div class="checklist-group">
+        <h3>🛒 超市與零食點心</h3>
+        <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"> <span>博多甘王草莓 (Amaou) 相關零食點心</span></label>
+        <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"> <span>日本限定口味洋洋片 / Pocky</span></label>
+      </div>
+    </div>
+  </main>
+
+  <!-- 底部選單（新增購物清單頁籤） -->
+  <nav class="bottom-nav">
+    <a href="index.html" class="nav-item"><span class="icon">🏠</span><span>首頁</span></a>
+    <a href="itinerary.html" class="nav-item"><span class="icon">📅</span><span>行程</span></a>
+    <a href="checklist.html" class="nav-item"><span class="icon">🧳</span><span>行李清單</span></a>
+    <a href="shopping.html" class="nav-item active"><span class="icon">🛍️</span><span>購物清單</span></a>
+  </nav>
+
+  <script>
+    function toggleCheck(checkbox) {
+      const item = checkbox.parentElement;
+      if (checkbox.checked) { item.classList.add('done'); } 
+      else { item.classList.remove('done'); }
+      saveShoppingList();
+    }
+
+    function saveShoppingList() {
+      const states = [];
+      document.querySelectorAll('.check-item input').forEach((cb) => { states.push(cb.checked); });
+      localStorage.setItem('fukuoka_shopping', JSON.stringify(states));
+    }
+
+    function loadShoppingList() {
+      const saved = JSON.parse(localStorage.getItem('fukuoka_shopping') || '[]');
+      document.querySelectorAll('.check-item input').forEach((cb, i) => {
+        if (saved[i]) {
+          cb.checked = true;
+          cb.parentElement.classList.add('done');
+        }
+      });
+    }
+
+    loadShoppingList();
+  </script>
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>福岡家族之旅 - 行程</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <style>
+    /* 行程 Summary 區塊專屬樣式 */
+    .summary-box {
+      background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+      border: 1px solid #bfdbfe;
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-bottom: 14px;
+      font-size: 13px;
+      color: #1e40af;
+      line-height: 1.6;
+    }
+    .summary-title {
+      font-weight: 700;
+      font-size: 13.5px;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .summary-route {
+      font-weight: 600;
+      word-break: break-all;
+    }
+    .summary-route span.optional {
+      color: #6b7280;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>福岡家族之旅 🇯🇵</h1>
+  </header>
+
+  <main class="container">
+    <!-- 日期 Tab 切換 -->
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchDay('sep15')">9/15 (二)</button>
+      <button class="tab-btn" onclick="switchDay('sep16')">9/16 (三)</button>
+      <button class="tab-btn" onclick="switchDay('sep17')">9/17 (四)</button>
+      <button class="tab-btn" onclick="switchDay('sep18')">9/18 (五)</button>
+    </div>
+
+    <!-- 9/15 (二) -->
+    <div id="sep15" class="day-panel active">
+      <div class="summary-box">
+        <div class="summary-title">📌 今日行程總覽</div>
+        <div class="summary-route">
+          桃園機場 ➔ 福岡機場 ➔ 飯店寄行李 ➔ <span class="optional">(水果派 Qu'il fait bon)</span> ➔ Check in ➔ <span class="optional">(天神地下街)</span> ➔ 博多水炊き專門 橙 ➔ 回飯店
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="time">08:00</div>
+        <div class="card-title">桃機T1集合</div>
+        <div class="tags"><span class="tag tag-集合">集合</span></div>
+        <button class="details-btn" onclick="openModal('桃機T1集合', '桃園國際機場 第一航廈', '集合地點當天會在群組確認', '桃機T1')">🔍 See Details</button>
+      </div>
+
+      <div class="card">
+        <div class="time">09:35</div>
+        <div class="card-title">桃機起飛</div>
+        <div class="tags"><span class="tag tag-移動中">移動中</span></div>
+        <div class="route-info">✈️ 桃機–福岡 JX840</div>
+        <button class="details-btn" onclick="openModal('桃機起飛 (JX840)', '星宇航空 JX840', '預計飛行時間約 2 小時 30 分鐘。', '桃機T1')">🔍 See Details</button>
+      </div>
+
+      <div class="card">
+        <div class="time">13:05</div>
+        <div class="card-title">降落福岡</div>
+        <button class="details-btn" onclick="openModal('降落福岡', '福岡空港 国際線', '準備辦理入境手續與提取行李。', '福岡機場')">🔍 See Details</button>
+      </div>
+
+      <div class="card">
+        <div class="time">13:30</div>
+        <div class="card-title">前往飯店寄存行李</div>
+        <div class="tags"><span class="tag tag-住宿">住宿</span></div>
+        <div class="route-info">🚕 福岡機場 ➔ 飯店</div>
+        <button class="details-btn" onclick="openModal('前往飯店寄存行李', '飯店寄存行李', '先寄放行李後，看情況決定是否能先入住', '飯店')">🔍 See Details</button>
+      </div>
+
+      <div class="card">
+        <div class="time">14:30</div>
+        <div class="card-title">水果派 Qu'il fait bon</div>
+        <div class="tags"><span class="tag tag-飲食">飲食</span><span class="tag tag-彈性行程">彈性行程</span></div>
+        <div class="route-info">🚶 步行 | ⏱ 停留 30 min</div>
+        <button class="details-btn" onclick="openModal('水果派 Quil fait bon', 'キル フェ ボン 福岡', '待編輯', 'QuilFaitBon')">🔍 See Details</button>
+      </div>
+
+      <div class="card">
+        <div class="time">15:00</div>
+        <div class="card-title">Check in</div>
+        <div class="tags"><span class="tag tag-住宿">住宿</span></div>
+        <div class="route-info">🚶 步行</div>
+        <button class="details-btn" onclick="openModal('Check in', '飯店登記入住', '返回飯店辦理入住、領取房卡與休息。', '飯店')">🔍 See Details</button>
+      </div>
+
+      <div class="card">
+        <div class="time">16:00</div>
+        <div class="card-title">天神地下街</div>
+        <div class="tags"><span class="tag tag-彈性行程">彈性行程</span><span class="tag tag-購物">購物</span></div>
+        <div class="route-info">🚶 步行</div>
+        <button class="details-btn" onclick="openModal('天神地下街', '天神地下街', '待編輯', '天神地下街')">🔍 See Details</button>
+      </div>
+
+      <div class="card">
+        <div class="time">19:00</div>
+        <div class="card-title">博多水炊き專門 橙</div>
+        <div class="tags"><span class="tag tag-晚餐">晚餐</span><span class="tag tag-集合">集合</span></div>
+        <div class="route-info">🚃 天神站 ➔ 大濠公園站</div>
+        <button class="details-btn" onclick="openModal('博多水炊き專門 橙', '博多水炊き 橙', '待編輯', '水炊橙')">🔍 See Details</button>
+      </div>
+
+      <div class="card">
+        <div class="time">21:00</div>
+        <div class="card-title">回飯店-自由時間！</div>
+        <div class="tags"><span class="tag tag-移動中">移動中</span></div>
+        <div class="route-info">🚃 大濠公園站 ➔ 天神站</div>
+        <button class="details-btn" onclick="openModal('回飯店-自由時間！', '回飯店自由時間', '搭地鐵從大濠公園站回天神站，自由休息或周邊逛逛。', '飯店')">🔍 See Details</button>
+      </div>
+    </div>
+
+    <!-- 9/16 (三) -->
+    <div id="sep16" class="day-panel">
+      <div class="summary-box">
+        <div class="summary-title">📌 今日行程總覽</div>
+        <div class="summary-route">
+          飯店集合 ➔ 太宰府天滿宮 & 表參道 ➔ <span class="optional">(味之明太子)</span> ➔ 九州國立博物館 ➔ 回飯店 ➔ <span class="optional">(博多運河城)</span> ➔ 燒肉 sudo 春吉 ➔ 回飯店
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="time">09:20</div>
+        <div class="card-title">飯店一樓集合！</div>
+        <div class="tags"><span class="tag tag-集合">集合</span></div>
+        <div class="route-info">🚃 西鐵福岡（天神）站</div>
+        <button class="details-btn" onclick="openModal('飯店一樓集合！', '西鉄福岡（天神）駅', '準時集合前往西鐵站搭車。', '#')">🔍 See Details</button>
+      </div>
+
+      <div class="card">
+        <div class="time">10:30</div>
+        <div class="card-title">太宰府天滿宮 & 太宰府前表參道</div>
+        <div class="tags"><span class="tag tag-觀光">觀光</span></div>
+        <div class="route-info">🚃 西鐵福岡（天神）站 ➔ 旅人號 ➔ 太宰府站 | ⏱ 2 hr</div>
+        <button class="details-btn" onclick="openModal('太宰府天滿宮 & 表參道', '太宰府天満宮', '學問之神神社。參道必吃現烤梅枝餅，隈研吾設計的星巴克也在這裡！', '太宰府')">🔍 See Details</button>
+      </div>
+
+      <div class="card">
+        <div class="time">12:00</div>
+        <div class="card-title">（待定）味之明太子 太宰府店</div>
+        <div class="tags"><span class="tag tag-午餐">午餐</span><span class="tag tag-彈性行程">彈性行程</span></div>
+        <div class="route-info">🚶 步行 | ⏱ 1 hr</div>
+        <button class="details-btn" onclick="openModal('味之明太子 太宰府店', '味の明太子ふくや 太宰府店', '待編輯', '味之明太子')">🔍 See Details</button>
+      </div>
+
+      <div class="card">
+        <div class="time">13:30</div>
+        <div class="card-title">九州國立博物館</div>
+        <div class="tags"><span class="tag tag-觀光">觀光</span></div>
+        <div class="route-info">🚶 步行 | ⏱ 2 hr</div>
+        <button class="details-btn" onclick="openModal('九州國立博物館', '九州国立博物館', '待編輯', '九州國立博物館')">🔍 See Details</button>
+      </div>
+
+      <div class="card">
+        <div class="time">16:30</div>
+        <div class="card-title">回飯店-自由時間！</div>
+        <div class="tags"><span class="tag tag-移動中">移動中</span></div>
+        <div class="route-info">🚃 太宰府站 ➔ 西鐵二日市站 ➔ 西鐵福岡（天神）站</div>
+        <button class="details-btn" onclick="openModal('回飯店-自由時間！', '自由時間', '返回天神市區稍微休息放東西。', '飯店')">🔍 See Details</button>
+      </div>
+
+      <div class="card">
+        <div class="time">17:00</div>
+        <div class="card-title">博多運河城</div>
+        <div class="tags"><span class="tag tag-購物">購物</span><span class="tag tag-彈性行程">彈性行程</span></div>
+        <div class="route-info">🚃 天神南站 ➔ 櫛田神社前</div>
+        <button class="details-btn" onclick="openModal('博多運河城', 'キャナルシティ博多', '待編輯', '博多運河城')">🔍 See Details</button>
+      </div>
+
+      <div class="card">
+        <div class="time">19:00</div>
+        <div class="card-title">燒肉 sudo 春吉</div>
+        <div class="tags"><span class="tag tag-晚餐">晚餐</span><span class="tag tag-集合">集合</span></div>
+        <div class="route-info">🚶 步行</div>
+        <button class="details-btn" onclick="openModal('燒肉 sudo 春吉', '焼肉 す堂 春吉', '專人代烤耶耶耶！！！', '燒肉Sudo')">🔍 See Details</button>
+      </div>
+
+      <div class="card">
+        <div class="time">21:30</div>
+        <div class="card-title">回飯店-自由時間！</div>
+        <div class="tags"><span class="tag tag-移動中">移動中</span></div>
+        <div class="route-info">🚃 櫛田神社前 ➔ 天神南站</div>
+        <button class="details-btn" onclick="openModal('回飯店-自由時間！', '自由時間', '晚餐後搭乘地鐵回天神飯店休息。', '飯店')">🔍 See Details</button>
+      </div>
+    </div>
+
+    <!-- 9/17 (四) -->
+    <div id="sep17" class="day-panel">
+      <div class="summary-box">
+        <div class="summary-title">📌 今日行程總覽 (KKday 一日遊)</div>
+        <div class="summary-route">
+          <span class="optional">(藍瓶咖啡)</span> ➔ 博多集合點 ➔ 門司港 & 唐戶市場 ➔ 小倉城 ➔ 北九州 Outlet ➔ 皿倉山夜景 ➔ 回博多 ➔ 回飯店
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="time">09:00</div>
+        <div class="card-title">藍瓶咖啡 天神店</div>
+        <div class="tags"><span class="tag tag-早餐">早餐</span><span class="tag tag-彈性行程">彈性行程</span></div>
+        <div class="route-info">🚶 步行 | ⏱ 1 hr</div>
+        <button class="details-btn" onclick="openModal('藍瓶咖啡 天神店', 'Blue Bottle Coffee 福岡天神', '待編輯', '藍瓶咖啡')">🔍 See Details</button>
+      </div>
+
+      <div class="card">
+        <div class="time">10:15</div>
+        <div class="card-title">飯店一樓集合！</div>
+        <div class="tags"><span class="tag tag-集合">集合</span></div>
+        <div class="route-info">🚃 天神站</div>
+        <button class="details-btn" onclick="openModal('飯店一樓集合！', '天神駅', '準備搭乘地鐵前往博多站參加kkday一日遊。', '飯店')">🔍 See Details</button>
+      </div>
+
+      <div class="card">
+        <div class="time">10:45</div>
+        <div class="card-title">前往博多集合點(10:45)</div>
+        <div class="tags"><span class="tag tag-移動中">移動中</span></div>
+        <div class="route-info">🚃 天神站 ➔ 博多站</div>
+        <button class="details-btn" onclick="openModal('前往博多集合點', '博多駅集合點', '找 KKday 巴士導遊報到；下一站車程約1.5小時', '博多集合點')">🔍 See Details</button>
+      </div>
+
+      <div class="card">
+        <div class="time">12:20</div>
+        <div class="card-title">門司港 & 唐戶市場</div>
+        <div class="tags"><span class="tag tag-觀光">觀光</span><span class="tag tag-午餐">午餐</span></div>
+        <div class="route-info">🚌 KKday 巴士行程 | ⏱ 2 hr</div>
+        <button class="details-btn" onclick="openModal('門司港 & 唐戶市場', '唐戸市場 / 門司港レトロ', '待編輯', '門司港')">🔍 See Details</button>
+      </div>
+
+      <div class="card">
+        <div class="time">15:00</div>
+        <div class="card-title">小倉城</div>
+        <div class="tags"><span class="tag tag-觀光">觀光</span></div>
+        <div class="route-info">🚌 KKday 巴士行程 | ⏱ 50 min</div>
+        <button class="details-btn" onclick="openModal('小倉城', '小倉城', '待編輯', '小倉城')">🔍 See Details</button>
+      </div>
+
+      <div class="card">
+        <div class="time">16:20</div>
+        <div class="card-title">北九州outlet</div>
+        <div class="tags"><span class="tag tag-購物">購物</span><span class="tag tag-晚餐">晚餐</span></div>
+        <div class="route-info">🚌 KKday 巴士行程 | ⏱ 2 hr 20 min</div>
+        <button class="details-btn" onclick="openModal('北九州outlet', 'THE OUTLETS KITAKYUSHU', '待編輯', '北九州Outlet')">🔍 See Details</button>
+      </div>
+
+      <div class="card">
+        <div class="time">19:00</div>
+        <div class="card-title">皿倉山夜景</div>
+        <div class="tags"><span class="tag tag-觀光">觀光</span></div>
+        <div class="route-info">🚌 KKday 巴士行程 | ⏱ 50 min</div>
+        <button class="details-btn" onclick="openModal('皿倉山夜景', '皿倉山', '待編輯', '皿倉山夜景')">🔍 See Details</button>
+      </div>
+
+      <div class="card">
+        <div class="time">21:00</div>
+        <div class="card-title">回到博多下車點</div>
+        <div class="tags"><span class="tag tag-移動中">移動中</span></div>
+        <div class="route-info">🚌 KKday 巴士行程</div>
+        <button class="details-btn" onclick="openModal('回到博多下車點', '博多駅', '回程約 1 小時；一日遊行程結束，返回博多站。', '博多集合點')">🔍 See Details</button>
+      </div>
+
+      <div class="card">
+        <div class="time">21:20</div>
+        <div class="card-title">回飯店-自由時間！</div>
+        <div class="tags"><span class="tag tag-移動中">移動中</span></div>
+        <div class="route-info">🚃 博多站 ➔ 天神站</div>
+        <button class="details-btn" onclick="openModal('回飯店-自由時間！', '自由時間', '從博多站搭乘地鐵回飯店休息。', '飯店')">🔍 See Details</button>
+      </div>
+    </div>
+
+    <!-- 9/18 (五) -->
+    <div id="sep18" class="day-panel">
+      <div class="summary-box">
+        <div class="summary-title">📌 今日行程總覽</div>
+        <div class="summary-route">
+          Check out 退房 ➔ 飯店大廳集合 ➔ 福岡機場報到 ➔ 福岡起飛 ➔ 桃機降落
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="time">11:00</div>
+        <div class="card-title">11:00 Check out</div>
+        <div class="tags"><span class="tag tag-住宿">住宿</span></div>
+        <button class="details-btn" onclick="openModal('Check out', '退房', '辦理退房，可將大件行李暫寄於飯店櫃檯。', '飯店')">🔍 See Details</button>
+      </div>
+
+      <div class="card">
+        <div class="time">17:00</div>
+        <div class="card-title">17:00 飯店集合，準備前往機場</div>
+        <div class="tags"><span class="tag tag-集合">集合</span></div>
+        <button class="details-btn" onclick="openModal('飯店集合', '飯店大廳', '領取寄放行李，準備出發前往機場。', '飯店')">🔍 See Details</button>
+      </div>
+
+      <div class="card">
+        <div class="time">17:30</div>
+        <div class="card-title">福岡機場報到</div>
+        <div class="route-info">🚕 計程車</div>
+        <button class="details-btn" onclick="openModal('福岡機場報到', '福岡空港 国際線', '辦理報到、托運行李、安檢與免稅店購物。', '福岡機場')">🔍 See Details</button>
+      </div>
+
+      <div class="card">
+        <div class="time">19:20</div>
+        <div class="card-title">福岡起飛</div>
+        <div class="tags"><span class="tag tag-移動中">移動中</span></div>
+        <div class="route-info">✈️ 福岡–桃機 BR101</div>
+        <button class="details-btn" onclick="openModal('福岡起飛 (BR101)', '長榮航空 BR101', '預計飛行時間約 2 小時 25 分鐘。', '福岡機場')">🔍 See Details</button>
+      </div>
+
+      <div class="card">
+        <div class="time">20:45</div>
+        <div class="card-title">桃機降落</div>
+        <button class="details-btn" onclick="openModal('降落桃園機場', '桃園國際機場', '順利返抵國門，結束福岡豐富之旅！', '桃機T1')">🔍 See Details</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- See Details 彈出視窗 (Modal) -->
+  <div id="details-modal" class="modal-overlay" onclick="closeModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <div id="modal-title" class="modal-title">景點名稱</div>
+        <button class="close-btn" onclick="closeModal()">×</button>
+      </div>
+      <div id="modal-jp" style="font-size: 13px; font-weight: 600; color: var(--primary);">日文店名</div>
+      <div id="modal-note" class="note-box">個人的詳細筆記...</div>
+      <a id="modal-map-link" href="#" target="_blank" class="map-link-btn">📍 開啟 Google Maps 導航</a>
+    </div>
+  </div>
+
+  <!-- 底部選單 -->
+  <nav class="bottom-nav">
+    <a href="index.html" class="nav-item"><span class="icon">🏠</span><span>首頁</span></a>
+    <a href="itinerary.html" class="nav-item active"><span class="icon">📅</span><span>行程</span></a>
+    <a href="checklist.html" class="nav-item"><span class="icon">🧳</span><span>行李清單</span></a>
+    <a href="shopping.html" class="nav-item"><span class="icon">🛍️</span><span>推薦購物清單</span></a>
+  </nav>
+
+  <!-- 載入 maps.js 資料檔 -->
+  <script src="maps.js"></script>
+  
+  <script>
+    function switchDay(dayId) {
+      document.querySelectorAll('.day-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById(dayId).classList.add('active');
+      event.target.classList.add('active');
+    }
+
+    // 防錯版 openModal：自動對照 MAP_LINKS 字典
+    function openModal(title, jpName, note, mapKey) {
+      document.getElementById('modal-title').innerText = title || '景點資訊';
+      document.getElementById('modal-jp').innerText = jpName || '';
+      document.getElementById('modal-note').innerText = note || '尚無備註';
+      
+      const mapBtn = document.getElementById('modal-map-link');
+      
+      // 安全取得網址：先查 MAP_LINKS[mapKey]，如果沒有就直接拿 mapKey 本身
+      let mapUrl = '';
+      if (typeof MAP_LINKS !== 'undefined' && MAP_LINKS[mapKey]) {
+        mapUrl = MAP_LINKS[mapKey];
+      } else if (typeof mapKey === 'string' && mapKey.startsWith('http')) {
+        mapUrl = mapKey;
+      }
+
+      // 有有效網址才顯示導航按鈕，否則隱藏按鈕（但彈視窗必定能正常打開！）
+      if (mapUrl && mapUrl.trim() !== '' && mapUrl !== '#') {
+        mapBtn.href = mapUrl;
+        mapBtn.style.display = 'block';
+      } else {
+        mapBtn.style.display = 'none';
+      }
+      
+      document.getElementById('details-modal').classList.add('active');
+    }
+
+    function closeModal() {
+      document.getElementById('details-modal').classList.remove('active');
+    }
+  </script>
+</body>
+</html>
