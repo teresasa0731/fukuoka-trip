@@ -72,7 +72,7 @@
         <div class="card-title">桃機起飛</div>
         <div class="tags"><span class="tag tag-移動中">移動中</span></div>
         <div class="route-info">✈️ 桃機–福岡 JX840</div>
-        <button class="details-btn" onclick="openModal('桃機起飛 (JX840)', '星宇航空 JX840', '預計飛行時間約 2 小時 30 分鐘。', '桃機T1')">🔍 See Details</button>
+        <button class="details-btn" onclick="openModal('桃機起飛 (JX840)', '星宇航空 JX840', '預計飛行時間約 2 小時 30 分鐘。', '#')">🔍 See Details</button>
       </div>
 
       <div class="card">
@@ -144,7 +144,7 @@
         <div class="card-title">飯店一樓集合！</div>
         <div class="tags"><span class="tag tag-集合">集合</span></div>
         <div class="route-info">🚃 西鐵福岡（天神）站</div>
-        <button class="details-btn" onclick="openModal('飯店一樓集合！', '西鉄福岡（天神）駅', '準時集合前往西鐵站搭車。', '#')">🔍 See Details</button>
+        <button class="details-btn" onclick="openModal('飯店一樓集合！', '西鉄福岡（天神）駅', '準時集合前往西鐵站搭車。', '飯店')">🔍 See Details</button>
       </div>
 
       <div class="card">
@@ -339,9 +339,11 @@
         <div id="modal-title" class="modal-title">景點名稱</div>
         <button class="close-btn" onclick="closeModal()">×</button>
       </div>
-      <div id="modal-jp" style="font-size: 13px; font-weight: 600; color: var(--primary);">日文店名</div>
+      <div class="modal-location">
+        <span id="modal-jp">日文店名</span>
+        <a id="modal-map-link" href="#" target="_blank" rel="noopener noreferrer" class="map-link">📍 開啟導航</a>
+      </div>
       <div id="modal-note" class="note-box">個人的詳細筆記...</div>
-      <a id="modal-map-link" href="#" target="_blank" class="map-link-btn">📍 開啟 Google Maps 導航</a>
     </div>
   </div>
 
@@ -353,7 +355,7 @@
     <a href="shopping.html" class="nav-item"><span class="icon">🛍️</span><span>推薦購物清單</span></a>
   </nav>
 
-  <!-- 載入 maps.js 資料檔 -->
+  <!-- 載入地圖連結資料檔 -->
   <script src="maps.js"></script>
   
   <script>
@@ -372,7 +374,7 @@
       
       const mapBtn = document.getElementById('modal-map-link');
       
-      // 安全取得網址：先查 MAP_LINKS[mapKey]，如果沒有就直接拿 mapKey 本身
+      // 從 MAP_LINKS 字典取得指定地點的固定網址
       let mapUrl = '';
       if (typeof MAP_LINKS !== 'undefined' && MAP_LINKS[mapKey]) {
         mapUrl = MAP_LINKS[mapKey];
@@ -380,10 +382,10 @@
         mapUrl = mapKey;
       }
 
-      // 有有效網址才顯示導航按鈕，否則隱藏按鈕（但彈視窗必定能正常打開！）
+      // 有有效網址才顯示導航連結
       if (mapUrl && mapUrl.trim() !== '' && mapUrl !== '#') {
         mapBtn.href = mapUrl;
-        mapBtn.style.display = 'block';
+        mapBtn.style.display = 'inline-flex';
       } else {
         mapBtn.style.display = 'none';
       }

@@ -66,7 +66,8 @@ header h1 { font-size: 18px; font-weight: 700; }
 .modal-title { font-size: 18px; font-weight: 700; }
 .close-btn { border: none; background: #e5e7eb; border-radius: 50%; width: 28px; height: 28px; font-weight: bold; cursor: pointer; }
 .note-box { background: #f9fafb; border-left: 4px solid var(--primary); padding: 10px 12px; font-size: 13.5px; color: #374151; line-height: 1.5; margin: 12px 0; border-radius: 0 8px 8px 0; white-space: pre-line; }
-.map-link-btn { display: block; text-align: center; background: var(--primary); color: #fff; text-decoration: none; padding: 12px; border-radius: 10px; font-weight: 600; font-size: 14px; margin-top: 14px; }
+.modal-location { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px; font-size: 13px; font-weight: 600; color: var(--primary); }
+.map-link { display: inline-flex; color: var(--primary); font-size: 12px; font-weight: 500; text-decoration: underline; text-underline-offset: 2px; }
 
 /* Checklist */
 .checklist-group { margin-bottom: 16px; }
