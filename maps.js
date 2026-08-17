@@ -9,11 +9,12 @@ const MAP_LINKS = {
   "水炊橙": "https://maps.app.goo.gl/u2dKpCboBGPYDRWs8",
 
   // Day 2: 9/16 (三)
+  "Pain Stock Tenjin": "https://maps.app.goo.gl/Zx6RuPcxUyeZ4mew7",
   "太宰府": "https://maps.app.goo.gl/YsTgKUKVHpGnkpM5A",
   "拉麵魁源": "https://maps.app.goo.gl/zrVYY5Q9aabmMt5N8",
   "九州國立博物館": "https://maps.app.goo.gl/xuW7VgmVDz9jde1B6",
   "博多運河城": "https://maps.app.goo.gl/txDXGStuzSWrStNYA",
-  "燒肉Sudo": "https://maps.app.goo.gl/rvuHrYUiYwvMsE3KA",
+  "燒肉大東園": "https://maps.app.goo.gl/opoG7MPWSRxtjn9y7",
 
   // Day 3: 9/17 (四)
   "藍瓶咖啡": "https://maps.app.goo.gl/4CiAjuajvQd5C7Y57",
@@ -26,5 +27,7 @@ const MAP_LINKS = {
   // 周邊景點
   "唐吉訶德福岡天神本店": "https://maps.app.goo.gl/dxv3Gg92Yoa4Z8YD9",
   "大國藥妝天神南店": "https://maps.app.goo.gl/azhwetfPw8KXfMFi6",
-  "大賀藥局天神地下街店": "https://maps.app.goo.gl/UErn2Rrdcopnj1Nz5"
+  "大賀藥局天神地下街店": "https://maps.app.goo.gl/UErn2Rrdcopnj1Nz5",
+  "BicCamera": "https://share.google/sNV3m5RcRUmuqvVmX",
+  "Cosmos": "https://maps.app.goo.gl/szix9FW3Rkpy4ZHS6"
 };

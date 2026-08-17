@@ -15,6 +15,10 @@
     <h3 style="font-size: 14px; font-weight: 400; color: var(--text-sub); margin-top: 2px;">生活不必硬剛 但可以在福岡 >.< </h3>
   </header>
 
+  <div class="update-stamp">
+    行程版本 · <time id="page-last-updated">讀取中…</time>
+  </div>
+
   <main class="container">
     <!-- 航班卡片 -->
     <div class="card">
@@ -46,16 +50,15 @@
     </p>
     
     <p style="font-size: 15px; color: var(--text-sub); margin-top: 4px;">Check-in: 9/15 15:00 | Check-out: 9/18 11:00</p>
-    <p style="font-size: 15px; color: var(--text-sub); margin-top: 2px;">💡 9/15 14:30 先至飯店寄放行李。</p>
     </div>
 
     <!-- 地鐵圖卡片 -->
     <div class="card">
     <div class="card-title">🚇 福岡地下鐵路線圖</div>
-    <p style="font-size: 14px; color: var(--text-sub); margin-bottom: 8px;">飯店周圍：[天神站]空港線（赤色）、[天神南站]七隈線（綠色）、西鐵天神大牟田線。</p>
+    <p style="font-size: 14px; color: var(--text-sub); margin-bottom: 8px;">絕佳好飯店位置：[天神站]空港線（赤色）、[天神南站]七隈線（綠色）、[西鐵福岡天神]西鐵天神大牟田線（細細的藍線）</p>
     
     <!-- 這裡直接載入你本機的圖片檔，離線也能顯示 -->
-    <img src="images/subway.png" alt="福岡地鐵圖" style="width: 100%; border-radius: 8px; border: 1px solid #e5e7eb;">
+    <img src="images/subway.png" alt="福岡地鐵圖" class="zoomable-image" onclick="openImage(this)" title="點擊放大">
     </div>
 
 
@@ -64,14 +67,20 @@
       <div class="card-title">行前最終確認</div>
       <p style="font-size: 14px; color: var(--text-sub); margin-bottom: 12px;">出發前請確認以下重點項目均已準備妥當：</p>
 
-      <div class="checklist-group">
-        <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"> <span>Visit Japan Web 填寫 & QR Code 截圖</span></label>
-        <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"> <span>日本網卡 / eSIM</span></label>
-        <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"> <span>日幣現金 ＆ 魔法小卡</span></label>
-        <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"> <span>護照</span></label>
-        <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"> <span>行動電源（要隨身攜帶登機！！！）</span></label>
-      </div>
+      <ul class="home-bullet-list">
+        <li>Visit Japan Web 填寫與 QR Code 截圖</li>
+        <li>日本網卡／eSIM</li>
+        <li>現金與魔法小卡</li>
+        <li>護照 ＆ 行動電源（要隨身攜帶登機！！！）</li>
+        <li>快樂ㄉ心情</li>
+      </ul>
+      <a class="home-info-link" href="https://docs.google.com/spreadsheets/d/1cQ5qzhMYBGaFJOBVklKUKnP10sbfPGODhq_k2A0n9dk/edit?usp=sharing" target="_blank" rel="noopener noreferrer">💰 分帳明細</a>
     </div>
+
+  <div id="image-lightbox" class="image-lightbox" onclick="closeImage(event)" aria-hidden="true">
+    <button class="image-lightbox-close" type="button" onclick="closeImage()" aria-label="關閉圖片">×</button>
+    <img id="image-lightbox-content" src="" alt="">
+  </div>
 
 <!-- 底部選單 -->
   <nav class="bottom-nav">
@@ -81,32 +90,46 @@
     <a href="locations.html" class="nav-item"><span class="icon">📍</span><span>購物指南</span></a>
   </nav>
 
-  <!-- JS 邏輯：讓首頁的勾選框也能自動儲存記憶 -->
+  <!-- 首頁圖片放大功能 -->
   <script>
-    function toggleCheck(checkbox) {
-      const item = checkbox.parentElement;
-      if (checkbox.checked) { item.classList.add('done'); } 
-      else { item.classList.remove('done'); }
-      savePrecheck();
+    function showLastUpdated() {
+      const updatedAt = new Date(document.lastModified);
+      const label = Number.isNaN(updatedAt.getTime())
+        ? document.lastModified
+        : updatedAt.toLocaleString('zh-TW', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false
+          });
+      document.getElementById('page-last-updated').textContent = label;
     }
 
-    function savePrecheck() {
-      const states = [];
-      document.querySelectorAll('.check-item input').forEach((cb) => { states.push(cb.checked); });
-      localStorage.setItem('fukuoka_precheck', JSON.stringify(states));
+    function openImage(image) {
+      const lightbox = document.getElementById('image-lightbox');
+      const enlargedImage = document.getElementById('image-lightbox-content');
+      enlargedImage.src = image.src;
+      enlargedImage.alt = image.alt;
+      lightbox.classList.add('active');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
     }
 
-    function loadPrecheck() {
-      const saved = JSON.parse(localStorage.getItem('fukuoka_precheck') || '[]');
-      document.querySelectorAll('.check-item input').forEach((cb, i) => {
-        if (saved[i]) {
-          cb.checked = true;
-          cb.parentElement.classList.add('done');
-        }
-      });
+    function closeImage(event) {
+      if (event && event.target.id !== 'image-lightbox') return;
+      const lightbox = document.getElementById('image-lightbox');
+      lightbox.classList.remove('active');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
     }
 
-    loadPrecheck();
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') closeImage();
+    });
+
+    showLastUpdated();
   </script>
 </body>
 </html>

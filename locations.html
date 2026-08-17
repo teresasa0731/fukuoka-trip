@@ -39,25 +39,36 @@
       {
         title: '🛍️ 一寸光陰一寸金 買到身上沒現金',
         locations: [
-          { key: '福岡機場 國際線', icon: '🛬', name: '福岡機場 國際線', tips: '回程採買', description: '待編輯',
+          { key: '福岡機場 國際線', icon: '🛬', name: '福岡機場 國際線', tips: '小小的機場 刷卡的天堂', description: '免稅品可以提前預約下單，再到預約櫃台取貨',
             extras: [
               {
+                title: '福岡機場免稅店總覽',
+                link: 'https://fuk-ab.com.tw'
+              },
+              {
                 title: '💰 省錢小撇步',
-                image: 'images/fuk_coupon.jpg'
-              },
-              {
-                title: '機場介紹',
-                text: 'https://gogojp.tw/fukuoka-airport/'
-              },
-              {
-                title: '推薦ㄟ店',
-                text: '51號登機口的抹茶 THE MATCHA TOKYO',
+                image: 'images/fuk_coupon.jpg',
                 links: [
                   {
-                    label: '福岡機場伴手禮',
-                    url: 'https://www.fuk-ab.co.jp/en/shop/omiyage/'
+                    label: '玉山銀行限定折扣 5%',
+                    url: 'https://fuk-ab.com.tw/esunbank-coupon.html'
                   }
                 ]
+              },
+              {
+                title: '土產小町',
+                text: 'NY, AMANBERRY草莓奶油夾心餅乾, 博多ぱいおう 博多派王, 福岡限定版東京奶油起司餅乾, 機場限定版PRESS BUTTER SAND, 九州限定版LeTAO(必買紅茶巧克力夾心餅乾), 族繁不及備載，請自行探索。',
+                links: [
+                  {
+                    label: '可參考網友的攻略',
+                    text: '2026年的部落格，可信度應該偏高',
+                    url: 'https://twopigsfun.com/fukuoka-airport/'
+                  }
+                ]
+              },
+              {
+                title: '其他推薦ㄟ店',
+                text: '51號登機口的抹茶 THE MATCHA TOKYO, 獺祭的限定梅酒, 明月堂的博多通りもん',
               }
             ]
           },
@@ -142,7 +153,7 @@
               }
             ]
           },
-          { key: '大國藥妝天神南店', icon: '💊', name: '大國藥妝 天神南店', tips: '10:05-23:50', description: '',
+          { key: '大國藥妝天神南店', icon: '💊', name: '大國藥妝 天神南店', tips: '10:05-23:50', description: '非處方藥（二類三類/日用品) 比較便宜',
             extras: [
               {
                 title: '💰 省錢小撇步',
@@ -150,40 +161,34 @@
               }
             ]
           },
-          { key: 'BicCamera', icon: '📷', name: 'BicCamera', tips: '', description: '',
+          { key: 'BicCamera', icon: '📷', name: 'BicCamera 天神', tips: '10:00-21:00', description: '建議優先逛2館',
             extras: [
               {
                 title: '💰 省錢小撇步',
                 image: 'images/biccamera_coupon.jpg'
-              },
-              {
-                title: '分店資訊',
-                links: [
-                  {
-                    label: '📍 福岡天神本店',
-                    url: 'https://example.com/store1'
-                  },
-                  {
-                    label: '📍 天神西通店',
-                    url: 'https://example.com/store2'
-                  },
-                  {
-                    label: '📍 中洲店',
-                    url: 'https://example.com/store3'
-                  }
-                ]
               }
             ]
           },
-          { key: '松本清', icon: '💊', name: '松本清', tips: '', description: '',
+          { key: 'Cosmos', icon: '💊', name: 'Cosmos 天神大丸前店', tips: '10:00-23:00', description: '非處方藥（二類三類/日用品) 比較便宜',
+            extras: [
+              {
+                title: '💰 省錢小撇步',
+                image: 'images/cosmos_coupon.jpg'
+              },
+            ]
+          },
+          { key: '松本清', icon: '💊', name: '松本清', tips: '', description: '一類藥/指定藥品',
             extras: [
               {
                 title: '💰 省錢小撇步',
                 image: 'images/matsumoto_coupon.jpg'
+              },
+              {
+                text:"天神地下街店 9:00-22:30\n天神今泉店 8:30-0:00\n天神渡邊通店 9:00-0:00\nmina天神店 08:00-22:00\n機場出關前還有一間"
               }
             ]
           },
-          { key: '大賀藥局天神地下街店', icon: '💊', name: '大賀藥局 天神地下街店', tips: '', description: '',
+          { key: '大賀藥局天神地下街店', icon: '💊', name: '大賀藥局 天神地下街店', tips: '08:30-20:30', description: '有中文店員＆專櫃化妝品',
             extras: [
               {
                 title: '💰 省錢小撇步',
@@ -196,11 +201,12 @@
         ],
         image: 'images/medi.jpg',
         imageAlt: '藥妝與免稅資訊',
+        imageLabel: '查看藥妝免稅圖',
       },
       {
         title: '🍜 底哩雪斯',
         locations: [
-          { key: '博多周邊', icon: '🍜', name: '博多車站周邊', tips: '', description: '',
+          { key: '博多周邊', icon: '🍜', name: '博多車站周邊', tips: '', description: '要坐地鐵到博多站',
             extras: [
               {
                 links: [
@@ -213,17 +219,12 @@
                     label: 'Dacomecca 麵包店',
                     text: '07:00-19:00',
                     url: 'https://maps.app.goo.gl/ENUhjnhfs7C15UKi8'
-                  },
-                  {
-                    label: '冷凍炸雞 努努雞',
-                    text: '09:00-21:00（推薦配啤酒，超～讚）',
-                    url: 'https://maps.app.goo.gl/dDp7LBHqfjNsAVwGA'
                   }
                 ]
               }
             ]
            },
-          { key: '天神周邊', icon: '🍜', name: '天神站周邊', tips: '', description: '',
+          { key: '天神周邊', icon: '🍜', name: '天神站周邊', tips: '', description: '好吃一直吃',
             extras: [
               {
                 links: [
@@ -238,24 +239,10 @@
                     url: 'https://goo.gl/maps/zrVYY5Q9aabmMt5N8'
                   },
                   {
-                    label: 'Pain Stock Tenjin',
-                    text: '08:00-19:00，在天神中央公園，明太子面包超讚',
-                    url: 'https://maps.app.goo.gl/Zx6RuPcxUyeZ4mew7'
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        title: '🎁 別講大道理 滿床伴手禮',
-        locations: [
-          { key: '福岡機場ㄉ土產小町', icon: '🎁', name: '福岡機場ㄉ土產小町', tips: '', description: '提供各式博多特色伴手禮，適合購買回國贈送親友。' },
-          { key: '天神地下街的好料們', icon: '🍜', name: '天神地下街', tips: '', description: '',
-            extras: [
-              {
-                links: [
+                    label: '努努雞',
+                    text: '冷冷吃最好吃，推薦配啤酒，在福岡PARCO百貨B1F的THE天神',
+                    url: ''
+                  },
                   {
                     label: 'PRESS BUTTER SAND',
                     text: '高級ㄟ奶油餅乾，東7番街，近天神站與西鐵福岡（天神）站連通道',
@@ -274,7 +261,7 @@
                 ]
               }
             ]
-           }
+          },
         ]
       }
     ];
@@ -300,6 +287,10 @@
         image: 'images/0915_dinner.png'
       },
       {
+        title: '0916 晚餐（燒肉大東園）訂位確認',
+        image: 'images/0916_dinner.png'
+      },
+      {
         title: '0917 kkday 北九州一日遊行程',
         file: 'files/0917_kkday_voucher.pdf',
         fileLabel: '開啟 KKday 行程 PDF'
@@ -312,7 +303,11 @@
       list.innerHTML = LOCATION_GROUPS.map(group => `
         <section class="location-group">
           <h2 class="location-group-title">${group.title}</h2>
-          ${group.image ? `<img class="location-group-image" src="${group.image}" alt="${group.imageAlt || group.title}" loading="lazy">` : ''}
+          ${group.image ? `
+            <button class="location-group-image-link" type="button" onclick="openImage(this.querySelector('img'))">
+              <img class="location-group-image" src="${group.image}" alt="${group.imageAlt || group.title}" loading="lazy">
+              <span>🔍 ${group.imageLabel || '查看圖片'}</span>
+            </button>` : ''}
           ${group.locations.map(location => {
             const mapUrl = typeof MAP_LINKS !== 'undefined' ? MAP_LINKS[location.key] : '';
             return `

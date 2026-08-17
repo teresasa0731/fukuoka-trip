@@ -16,19 +16,18 @@
   <main class="container">
     <div class="card">
       <div class="card-title">🧳 建議行李備忘錄</div>
-      <p style="font-size: 14px; color: var(--text-sub); margin-bottom: 12px;">勾選狀態會自動儲存在手機本機。</p>
+      <p style="font-size: 14px; color: var(--text-sub); margin-bottom: 12px;">勾選狀態會存在手機</p>
 
       <div class="checklist-group">
         <h3>📄 證件與重要物品</h3>
-        <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"> <span>護照 (確認有效期 > 6 個月)</span></label>
+        <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"> <span>護照 (確認有效期 > 6 個月，沒有就沒救啦！)</span></label>
         <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"> <span>Visit Japan Web QR Code 截圖</span></label>
-        <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"> <span>日幣現金 / 海外高回饋信用卡</span></label>
-        <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"> <span>日本上網 SIM 卡 / eSIM 啟用碼</span></label>
+        <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"> <span>日本上網 SIM 卡 / eSIM</span></label>
       </div>
 
       <div class="checklist-group">
         <h3>🔌 電子設備</h3>
-        <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"> <span>行動電源 (須隨身攜帶登機)</span></label>
+        <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"> <span>行動電源 (要隨身攜帶登機)</span></label>
         <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"> <span>手機充電線 & 充電頭</span></label>
       </div>
 
@@ -38,6 +37,13 @@
         <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"> <span>好走的運動鞋 / 慢跑鞋</span></label>
         <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"> <span>雨具 / 折疊傘</span></label>
       </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">備忘錄</div>
+      <p class="memo-hint">內容只會儲存在你的手機</p>
+      <label class="memo-label" for="travel-memo">備忘內容</label>
+      <textarea id="travel-memo" class="memo-textarea" rows="9" placeholder="Anything u need!" oninput="saveMemo()"></textarea>
     </div>
   </main>
 
@@ -74,7 +80,23 @@
       });
     }
 
+    function saveMemo() {
+      const memo = document.getElementById('travel-memo').value;
+      localStorage.setItem('fukuoka_personal_memo', memo);
+      const status = document.getElementById('memo-status');
+      status.textContent = '✓ 已自動儲存';
+      clearTimeout(saveMemo.statusTimer);
+      saveMemo.statusTimer = setTimeout(() => {
+        status.textContent = '已儲存在本機';
+      }, 1500);
+    }
+
+    function loadMemo() {
+      document.getElementById('travel-memo').value = localStorage.getItem('fukuoka_personal_memo') || '';
+    }
+
     loadChecklist();
+    loadMemo();
   </script>
 </body>
 </html>
