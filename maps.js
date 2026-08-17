@@ -10,7 +10,7 @@ const MAP_LINKS = {
 
   // Day 2: 9/16 (三)
   "太宰府": "https://maps.app.goo.gl/YsTgKUKVHpGnkpM5A",
-  "味之明太子": "https://maps.app.goo.gl/Wv62a4Cx6HuhF1Jb8",
+  "拉麵魁源": "https://maps.app.goo.gl/zrVYY5Q9aabmMt5N8",
   "九州國立博物館": "https://maps.app.goo.gl/xuW7VgmVDz9jde1B6",
   "博多運河城": "https://maps.app.goo.gl/txDXGStuzSWrStNYA",
   "燒肉Sudo": "https://maps.app.goo.gl/rvuHrYUiYwvMsE3KA",
@@ -26,4 +26,5 @@ const MAP_LINKS = {
   // 周邊景點
   "唐吉訶德福岡天神本店": "https://maps.app.goo.gl/dxv3Gg92Yoa4Z8YD9",
   "大國藥妝天神南店": "https://maps.app.goo.gl/azhwetfPw8KXfMFi6",
+  "大賀藥局天神地下街店": "https://maps.app.goo.gl/UErn2Rrdcopnj1Nz5"
 };

@@ -1,111 +1,170 @@
 :root {
-  --bg-color: #f4f5f7;
-  --card-bg: #ffffff;
-  --primary: #2563eb;
-  --primary-light: #eff6ff;
-  --text-main: #1f2937;
-  --text-sub: #6b7280;
-  --border-radius: 14px;
+  /* 日系和風色調系統 */
+  --bg-color: #f7f6f3;          /* 和紙米暖灰 */
+  --card-bg: #ffffff;          /* 純白卡片 */
+  --primary: #3b6e8c;          /* 日系靛青藍 (藍鼠/琉璃色) */
+  --primary-light: #f0f4f8;    /* 淡天青色背景 */
+  --text-main: #2b2b2b;        /* 墨黑/炭灰 (非死黑，提高閱讀質感) */
+  --text-sub: #787875;         /* 利落中灰 */
+  --border-radius: 16px;       /* 圓潤現代角 */
+  --border-color: #e8e6e1;      /* 柔和邊框色 */
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: var(--bg-color); color: var(--text-main); padding-bottom: 75px; }
+body { 
+  font-family: "SF Pro TC", -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Noto Sans TC", sans-serif; 
+  background-color: var(--bg-color); 
+  color: var(--text-main); 
+  padding-bottom: 75px; 
+  letter-spacing: 0.02em;
+}
 
 /* 頂部 Header */
-header { position: sticky; top: 0; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); z-index: 90; border-bottom: 1px solid #e5e7eb; padding: 12px 16px; text-align: center; }
-header h1 { font-size: 18px; font-weight: 700; }
+header { position: sticky; top: 0; background: rgba(247, 246, 243, 0.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); z-index: 90; border-bottom: 1px solid var(--border-color); padding: 14px 16px; text-align: center; }
+header h1 { font-size: 17px; font-weight: 700; letter-spacing: 0.05em; color: var(--text-main); }
 
 /* 頁面容器 */
 .container { padding: 16px; max-width: 600px; margin: 0 auto; }
 
 /* 底部導覽列 (Bottom Nav) */
-.bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(255, 255, 255, 0.98); border-top: 1px solid #e5e7eb; display: flex; justify-content: space-around; padding: 8px 0; z-index: 100; backdrop-filter: blur(10px); }
-.nav-item { text-decoration: none; display: flex; flex-direction: column; align-items: center; color: var(--text-sub); font-size: 11px; font-weight: 600; flex: 1; }
-.nav-item .icon { font-size: 20px; margin-bottom: 2px; }
-.nav-item.active { color: var(--primary); }
+.bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(255, 255, 255, 0.95); border-top: 1px solid var(--border-color); display: flex; justify-content: space-around; padding: 8px 0 10px; z-index: 100; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+.nav-item { text-decoration: none; display: flex; flex-direction: column; align-items: center; color: var(--text-sub); font-size: 10.5px; font-weight: 500; flex: 1; transition: color 0.2s ease; }
+.nav-item .icon { font-size: 19px; margin-bottom: 3px; opacity: 0.85; }
+.nav-item.active { color: var(--primary); font-weight: 700; }
+.nav-item.active .icon { opacity: 1; }
 
 /* 卡片樣式 */
-.card { background: var(--card-bg); border-radius: var(--border-radius); padding: 16px; margin-bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
-.card-title { font-size: 16px; font-weight: 700; color: var(--text-main); }
-.time { font-size: 13px; font-weight: 700; color: var(--primary); margin-bottom: 4px; }
+.card { background: var(--card-bg); border-radius: var(--border-radius); padding: 18px; margin-bottom: 14px; border: 1px solid var(--border-color); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02); }
+.card-title { font-size: 15.5px; font-weight: 700; color: var(--text-main); letter-spacing: 0.03em; }
+.time { font-size: 12.5px; font-weight: 700; color: var(--primary); margin-bottom: 6px; letter-spacing: 0.04em; }
 
 /* 首頁專屬卡片 */
-.flight-box { display: flex; justify-content: space-between; align-items: center; background: var(--primary-light); padding: 12px 14px; border-radius: 10px; margin-top: 8px; }
+.flight-box { display: flex; justify-content: space-between; align-items: center; background: var(--primary-light); padding: 12px 16px; border-radius: 12px; margin-top: 10px; border: 1px solid #e1e9f0; }
 .flight-dept, .flight-arr { text-align: center; }
-.flight-code { font-size: 18px; font-weight: 800; color: var(--primary); }
-.flight-time { font-size: 12px; color: var(--text-sub); margin-top: 2px; }
+.flight-code { font-size: 18px; font-weight: 800; color: var(--primary); letter-spacing: 0.05em; }
+.flight-time { font-size: 11.5px; color: var(--text-sub); margin-top: 2px; }
 
 /* 行程頁 Tab */
-.tabs { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 8px; margin-bottom: 12px; scrollbar-width: none; }
+.tabs { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 8px; margin-bottom: 14px; scrollbar-width: none; }
 .tabs::-webkit-scrollbar { display: none; }
-.tab-btn { flex: 1; min-width: 75px; padding: 8px 12px; font-size: 13px; font-weight: 600; text-align: center; background: #e5e7eb; color: var(--text-sub); border: none; border-radius: 20px; cursor: pointer; white-space: nowrap; }
-.tab-btn.active { background: var(--primary); color: #fff; }
+.tab-btn { flex: 1; min-width: 78px; padding: 8px 14px; font-size: 12.5px; font-weight: 600; text-align: center; background: #eae7e1; color: var(--text-sub); border: none; border-radius: 20px; cursor: pointer; white-space: nowrap; transition: all 0.2s ease; }
+.tab-btn.active { background: var(--primary); color: #fff; box-shadow: 0 2px 8px rgba(59, 110, 140, 0.25); }
 
-/* 標籤 (Tags) */
+/* 標籤 (Tags) - 日系莫蘭迪淡雅配色 */
 .day-panel { display: none; }
 .day-panel.active { display: block; }
-.tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 8px; }
-.tag { font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 6px; }
-.tag-集合 { background: #dcfce7; color: #166534; }
-.tag-移動中 { background: #e0f2fe; color: #075985; }
-.tag-住宿 { background: #f3e8ff; color: #6b21a8; }
-.tag-觀光 { background: #fef3c7; color: #92400e; }
-.tag-飲食, .tag-早餐, .tag-午餐, .tag-晚餐 { background: #ffe4e6; color: #9f1239; }
-.tag-購物 { background: #fae8ff; color: #86198f; }
-.tag-彈性行程 { background: #f3f4f6; color: #374151; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 10px; }
+.tag { font-size: 10.5px; font-weight: 600; padding: 3px 9px; border-radius: 6px; letter-spacing: 0.03em; }
+.tag-集合 { background: #eef7f2; color: #2d6a4f; border: 1px solid #d8ebd9; }
+.tag-移動中 { background: #f0f4f8; color: #3b6e8c; border: 1px solid #d9e4ec; }
+.tag-住宿 { background: #f6f0f8; color: #6b4c7d; border: 1px solid #ebdcf0; }
+.tag-觀光 { background: #fcf6e8; color: #8a5a00; border: 1px solid #f5e7c6; }
+.tag-飲食, .tag-早餐, .tag-午餐, .tag-晚餐 { background: #fcf0f0; color: #a84242; border: 1px solid #f7d9d9; }
+.tag-購物 { background: #f8f0f6; color: #8a3b7b; border: 1px solid #f0d8eb; }
+.tag-彈性行程 { background: #f2f1ed; color: #575653; border: 1px solid #e3e1da; }
 
-.route-info { font-size: 12.5px; color: var(--text-sub); margin-bottom: 8px; }
-.details-btn { display: inline-flex; align-items: center; justify-content: center; width: 100%; padding: 8px; background: var(--primary-light); color: var(--primary); font-size: 13px; font-weight: 600; border: none; border-radius: 8px; cursor: pointer; margin-top: 4px; }
+.route-info { font-size: 12px; color: var(--text-sub); margin-bottom: 10px; line-height: 1.5; }
+.details-btn { display: inline-flex; align-items: center; justify-content: center; width: 100%; padding: 9px; background: var(--primary-light); color: var(--primary); font-size: 12.5px; font-weight: 600; border: 1px solid #dbe6ef; border-radius: 10px; cursor: pointer; margin-top: 4px; transition: background 0.2s ease; }
+.details-btn:active { background: #e2ecf5; }
 
 /* Modal 彈出視窗 */
-.modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); display: none; justify-content: center; align-items: flex-end; z-index: 200; backdrop-filter: blur(4px); }
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4); display: none; justify-content: center; align-items: flex-end; z-index: 200; backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); }
 .modal-overlay.active { display: flex; }
-.modal-content { background: #fff; width: 100%; max-width: 600px; border-radius: 20px 20px 0 0; padding: 20px; max-height: 80vh; overflow-y: auto; animation: slideUp 0.2s ease-out; }
+.modal-content { background: #fff; width: 100%; max-width: 600px; border-radius: 24px 20px 0 0; padding: 22px; max-height: 82vh; overflow-y: auto; animation: slideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
 @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
 .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-.modal-title { font-size: 18px; font-weight: 700; }
-.close-btn { border: none; background: #e5e7eb; border-radius: 50%; width: 28px; height: 28px; font-weight: bold; cursor: pointer; }
-.note-box { background: #f9fafb; border-left: 4px solid var(--primary); padding: 10px 12px; font-size: 13.5px; color: #374151; line-height: 1.5; margin: 12px 0; border-radius: 0 8px 8px 0; white-space: pre-line; }
-.modal-location { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px; font-size: 13px; font-weight: 600; color: var(--primary); }
-.map-link { display: inline-flex; color: var(--primary); font-size: 12px; font-weight: 500; text-decoration: underline; text-underline-offset: 2px; }
-.resource-link { display: none; width: fit-content; margin-bottom: 4px; color: var(--primary); font-size: 13px; font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+.modal-title { font-size: 17px; font-weight: 700; color: var(--text-main); }
+.close-btn { border: none; background: #f0eee9; color: var(--text-sub); border-radius: 50%; width: 28px; height: 28px; font-size: 16px; font-weight: bold; cursor: pointer; display: grid; place-items: center; }
+.note-box { background: #faf9f6; border-left: 3px solid var(--primary); padding: 12px 14px; font-size: 13px; color: #444340; line-height: 1.6; margin: 12px 0; border-radius: 0 10px 10px 0; white-space: pre-line; }
+.modal-location { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px; font-size: 12.5px; font-weight: 600; color: var(--primary); }
+.map-link { display: inline-flex; color: var(--primary); font-size: 12px; font-weight: 500; text-decoration: underline; text-underline-offset: 3px; }
+.resource-link { display: none; width: fit-content; margin-bottom: 4px; color: var(--primary); font-size: 12.5px; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 
 /* 購物指南 */
-.location-intro { margin-bottom: 16px; color: var(--text-sub); font-size: 13px; line-height: 1.6; }
+.location-intro { margin-bottom: 16px; color: var(--text-sub); font-size: 12.5px; line-height: 1.65; }
 .location-group { margin-bottom: 22px; }
-.location-group-title { margin: 0 4px 9px; font-size: 14px; color: var(--text-sub); }
-.location-group-image { display: block; width: 100%; height: auto; margin-bottom: 10px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
-.location-card { margin-bottom: 8px; overflow: hidden; background: var(--card-bg); border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
-.location-card summary { display: flex; align-items: center; gap: 10px; padding: 14px; cursor: pointer; list-style: none; }
+.location-group-title { margin: 0 4px 10px; font-size: 13.5px; font-weight: 700; color: var(--text-sub); letter-spacing: 0.04em; }
+.location-group-image { display: block; width: 100%; height: auto; margin-bottom: 10px; border-radius: 14px; border: 1px solid var(--border-color); }
+.location-card { margin-bottom: 10px; overflow: hidden; background: var(--card-bg); border-radius: 14px; border: 1px solid var(--border-color); box-shadow: 0 2px 8px rgba(0,0,0,0.02); }
+.location-card summary { display: flex; align-items: center; gap: 12px; padding: 14px; cursor: pointer; list-style: none; }
 .location-card summary::-webkit-details-marker { display: none; }
-.location-icon { display: grid; flex: 0 0 36px; width: 36px; height: 36px; place-items: center; background: var(--primary-light); border-radius: 10px; font-size: 18px; }
+.location-icon { display: grid; flex: 0 0 36px; width: 36px; height: 36px; place-items: center; background: var(--primary-light); border-radius: 10px; font-size: 17px; }
 .location-heading { flex: 1; min-width: 0; }
-.location-name { color: var(--text-main); font-size: 14px; font-weight: 700; }
-.location-tips { margin-top: 2px; overflow: hidden; color: var(--text-sub); font-size: 11.5px; font-weight: 500; text-overflow: ellipsis; white-space: nowrap; }
-.location-chevron { color: var(--text-sub); font-size: 16px; transition: transform 0.2s ease; }
+.location-name { color: var(--text-main); font-size: 13.5px; font-weight: 700; letter-spacing: 0.02em; }
+
+/* ★ 日系極致微調：tips 字小一號 (11px)、莫蘭迪灰 (#8c8c88)、輕字重 (400) 與微微拉開字距 */
+.location-tips { 
+  margin-top: 3px; 
+  overflow: hidden; 
+  color: #8c8c88; 
+  font-size: 11px; 
+  font-weight: 400; 
+  letter-spacing: 0.03em;
+  text-overflow: ellipsis; 
+  white-space: nowrap; 
+}
+
+.location-chevron { color: #b0ada6; font-size: 14px; transition: transform 0.2s ease; }
 .location-card[open] .location-chevron { transform: rotate(90deg); }
-.location-details { padding: 0 14px 14px 60px; }
-.location-details p { color: #374151; font-size: 13px; line-height: 1.65; }
-.location-map-link { display: inline-flex; margin-top: 9px; color: var(--primary); font-size: 12px; font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
-.location-extra { margin-top: 12px; padding-top: 12px; border-top: 1px solid #e5e7eb; }
-.location-extra-title { margin-bottom: 5px; color: var(--text-main); font-size: 12.5px; font-weight: 700; }
-.location-extra-text { color: #374151; font-size: 12.5px; line-height: 1.6; white-space: pre-line; }
-.location-extra-link { display: flex; width: fit-content; margin-top: 6px; color: var(--primary); font-size: 12px; font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
-.location-extra-image { display: block; width: min(180px, 100%); height: auto; margin-top: 8px; border: 1px solid #e5e7eb; border-radius: 10px; cursor: zoom-in; }
-.location-table-wrap { width: 100%; margin-top: 8px; overflow-x: auto; border: 1px solid #e5e7eb; border-radius: 8px; }
-.location-table { width: 100%; min-width: 560px; border-collapse: collapse; background: #fff; font-size: 11.5px; }
-.location-table th, .location-table td { padding: 9px; border-right: 1px solid #e5e7eb; border-bottom: 1px solid #e5e7eb; text-align: left; vertical-align: top; line-height: 1.55; white-space: pre-line; }
+.location-details { padding: 2px 14px 14px 62px; }
+.location-details p { color: #4a4945; font-size: 12.5px; line-height: 1.65; }
+.location-map-link { display: inline-flex; margin-top: 8px; color: var(--primary); font-size: 12px; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.location-extra { margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--border-color); }
+.location-extra-title { margin-bottom: 6px; color: var(--text-main); font-size: 12px; font-weight: 700; }
+.location-extra-title-link { display: inline-flex; color: var(--primary); text-decoration: underline; text-underline-offset: 3px; }
+.location-extra-text { color: #4a4945; font-size: 12px; line-height: 1.6; white-space: pre-line; }
+.location-extra-link { display: flex; width: fit-content; margin-top: 6px; color: var(--primary); font-size: 12px; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.location-extra-link-item { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.location-extra-link-item .location-extra-link { margin-top: 0; }
+.location-extra-link-text { color: var(--text-sub); font-size: 10px; font-weight: 400; line-height: 1.45; }
+.location-extra-image { display: block; width: min(180px, 100%); height: auto; margin-top: 8px; border: 1px solid var(--border-color); border-radius: 10px; cursor: zoom-in; }
+.location-table-wrap { width: 100%; margin-top: 8px; overflow-x: auto; border: 1px solid var(--border-color); border-radius: 10px; }
+.location-table { width: 100%; min-width: 560px; border-collapse: collapse; background: #fff; font-size: 11px; }
+.location-table th, .location-table td { padding: 9px 11px; border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); text-align: left; vertical-align: top; line-height: 1.55; white-space: pre-line; color: #4a4945; }
 .location-table th { background: var(--primary-light); color: var(--primary); font-weight: 700; white-space: nowrap; }
 .location-table th:last-child, .location-table td:last-child { border-right: none; }
 .location-table tbody tr:last-child td { border-bottom: none; }
-.image-lightbox { position: fixed; inset: 0; z-index: 300; display: none; align-items: center; justify-content: center; padding: 24px; background: rgba(0,0,0,0.85); }
+.image-lightbox { position: fixed; inset: 0; z-index: 300; display: none; align-items: center; justify-content: center; padding: 24px; background: rgba(0,0,0,0.85); backdrop-filter: blur(4px); }
 .image-lightbox.active { display: flex; }
-.image-lightbox img { max-width: 100%; max-height: 88vh; object-fit: contain; border-radius: 8px; }
-.image-lightbox-close { position: absolute; top: 14px; right: 14px; width: 36px; height: 36px; border: none; border-radius: 50%; background: rgba(255,255,255,0.95); color: #111827; font-size: 24px; line-height: 1; cursor: pointer; }
+.image-lightbox img { max-width: 100%; max-height: 88vh; object-fit: contain; border-radius: 10px; }
+.image-lightbox-close { position: absolute; top: 16px; right: 16px; width: 36px; height: 36px; border: none; border-radius: 50%; background: rgba(255,255,255,0.95); color: #111827; font-size: 22px; line-height: 1; cursor: pointer; }
 
 /* Checklist */
-.checklist-group { margin-bottom: 16px; }
-.checklist-group h3 { font-size: 14px; color: var(--text-sub); margin-bottom: 8px; padding-left: 4px; }
-.check-item { display: flex; align-items: center; gap: 10px; background: #fff; padding: 12px 14px; border-radius: 10px; margin-bottom: 6px; cursor: pointer; }
-.check-item input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--primary); }
-.check-item.done span { text-decoration: line-through; color: var(--text-sub); }
+.checklist-group { margin-bottom: 18px; }
+.checklist-group h3 { font-size: 13px; color: var(--text-sub); margin-bottom: 8px; padding-left: 2px; font-weight: 700; }
+.check-item { display: flex; align-items: center; gap: 10px; background: #fff; padding: 12px 14px; border-radius: 12px; margin-bottom: 6px; cursor: pointer; border: 1px solid var(--border-color); font-size: 13px; color: var(--text-main); }
+.check-item input[type="checkbox"] { width: 17px; height: 17px; accent-color: var(--primary); border-radius: 4px; }
+.check-item.done span { text-decoration: line-through; color: #a3a19b; }
+
+/* 長輩友善字級：全站文字放大一級 */
+body { font-size: 17px; line-height: 1.6; }
+header h1 { font-size: 19px; }
+.nav-item { font-size: 12px; }
+.nav-item .icon { font-size: 21px; }
+.card-title { font-size: 17px; }
+.time { font-size: 14px; }
+.flight-code { font-size: 20px; }
+.flight-time { font-size: 13px; }
+.tab-btn { font-size: 14px; }
+.tag { font-size: 12px; }
+.route-info { font-size: 13.5px; line-height: 1.6; }
+.details-btn { font-size: 14px; }
+.modal-title { font-size: 19px; }
+.close-btn { font-size: 18px; }
+.note-box { font-size: 14.5px; line-height: 1.7; }
+.modal-location, .resource-link { font-size: 14px; }
+.map-link { font-size: 13.5px; }
+.location-intro { font-size: 14px; }
+.location-group-title { font-size: 15px; }
+.location-icon { font-size: 19px; }
+.location-name { font-size: 15px; }
+.location-tips { font-size: 12.5px; }
+.location-chevron { font-size: 16px; }
+.location-details p { font-size: 14px; line-height: 1.75; }
+.location-map-link { font-size: 13.5px; }
+.location-extra-title { font-size: 13.5px; }
+.location-extra-text, .location-extra-link { font-size: 13.5px; line-height: 1.7; }
+.location-extra-link-text { font-size: 12px; }
+.location-table { font-size: 12.5px; }
+.checklist-group h3 { font-size: 14.5px; }
+.check-item { font-size: 14.5px; line-height: 1.6; }

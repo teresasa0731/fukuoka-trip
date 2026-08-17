@@ -44,19 +44,28 @@
               {
                 title: '機場介紹',
                 text: 'https://gogojp.tw/fukuoka-airport/'
+              },
+              {
+                title: '推薦ㄟ店',
+                text: '51號登機口的抹茶 THE MATCHA TOKYO',
+                links: [
+                  {
+                    label: '福岡機場伴手禮',
+                    url: 'https://www.fuk-ab.co.jp/en/shop/omiyage/'
+                  }
+                ]
               }
             ]
           },
           { key: '天神地下街', icon: '🛍️', name: '天神地下街', tips: '10:00-20:00', description: '就在飯店旁邊',
             extras: [
               {
-                title: '🎟️ 優惠資訊',
-                text: '結帳前記得出示優惠 QR Code。取得圖片後，可在這個區塊直接顯示。'
-                // image: 'images/donki-coupon-qr.png'
+                title: '地下街地圖',
+                link: 'https://platinumaps.jp/d/tenchika?floor=B1',              
               },
               {
-                title: '💡 購物提醒',
-                text: '辦理免稅時請攜帶護照；優惠券與免稅是否能併用，以店舖現場規定為準。'
+                title: '特別的店',
+                text: '1. 免稅：消費含稅滿5,500円以上，出示護照即可辦理退稅\n2. 9折：部分店家出示護照即可享有9折優惠'
               }
             ]
           },
@@ -68,17 +77,13 @@
                 links: [
                   {
                     label: '各品牌退稅方式',
-                    url: 'https://canalcity.co.jp/zh-tw/taxfree'
+                    url: 'https://canalcity.co.jp/shopsearch/category'
                   },
                   {
                     label: '部分店家出示護照可以9折',
                     url: 'https://canalcity.co.jp/sale/detail/passportcampaign'
                   }
                 ]
-              },
-              {
-                title: '購物小撇步',
-                text: '辦理免稅時請攜帶護照；優惠券與免稅是否能併用，以店舖現場規定為準。'
               },
               {
                 title: '🏬 分區必逛攻略',
@@ -119,15 +124,21 @@
             extras: [
               {
                 title: '💰 省錢小撇步',
-                image: 'images/donki_coupon.jpg'
+                text: '點連結後選擇discount coupon\n(超過10,000日圓點銀色5%；超過30,000日圓點金色7%)\n給店員掃條碼',
+                links: [
+                  {
+                    label: '(click me!) Discount Coupon',
+                    url: 'https://japanportal.donki-global.com/coupon/?ptcd=0251000002'
+                  }
+                ]
               },
               {
                 title: '💡 購物提醒',
-                text: '辦理免稅時請攜帶護照；優惠券與免稅是否能併用，以店舖現場規定為準。'
+                text: '記得帶護照，在日本要用的東西記得不要包到免稅裡！'
               }
             ]
           },
-          { key: '大國藥妝天神南店', icon: '💊', name: '大國藥妝天神南店', tips: '10:05-23:50', description: '',
+          { key: '大國藥妝天神南店', icon: '💊', name: '大國藥妝 天神南店', tips: '10:05-23:50', description: '',
             extras: [
               {
                 title: '💰 省錢小撇步',
@@ -160,11 +171,19 @@
               }
             ]
           },
-          { key: '松本清', icon: '💊', name: '松本清', tips: '', description: '藥妝與免稅資訊',
+          { key: '松本清', icon: '💊', name: '松本清', tips: '', description: '',
             extras: [
               {
                 title: '💰 省錢小撇步',
                 image: 'images/matsumoto_coupon.jpg'
+              }
+            ]
+          },
+          { key: '大賀藥局天神地下街店', icon: '💊', name: '大賀藥局 天神地下街店', tips: '', description: '',
+            extras: [
+              {
+                title: '💰 省錢小撇步',
+                image: 'images/ohga_coupon.jpg'
               }
             ]
           }
@@ -177,15 +196,81 @@
       {
         title: '🍜 底哩雪斯',
         locations: [
-          { key: '一蘭拉麵', icon: '🍜', name: '一蘭拉麵 天神西通店', tips: '一蘭ラーメン 天神西通り店', description: '知名豚骨拉麵連鎖店，提供個人化點餐與隔間座位。' },
-          { key: '博多一幸舍', icon: '🍜', name: '博多一幸舍 博多本店', tips: '博多一幸舎 博多本店', description: '另一家受歡迎的豚骨拉麵店，湯頭濃郁，適合喜愛重口味的旅客。' }
+          { key: '博多周邊', icon: '🍜', name: '博多車站周邊', tips: '', description: '',
+            extras: [
+              {
+                links: [
+                  {
+                    label: 'LeClerc 的可麗露',
+                    text: '09:00-21:00',
+                    url: 'https://maps.app.goo.gl/wk5aZnM958K5mx9H9'
+                  },
+                  {
+                    label: 'Dacomecca 麵包店',
+                    text: '07:00-19:00',
+                    url: 'https://maps.app.goo.gl/ENUhjnhfs7C15UKi8'
+                  },
+                  {
+                    label: '冷凍炸雞 努努雞',
+                    text: '09:00-21:00（推薦配啤酒，超～讚）',
+                    url: 'https://maps.app.goo.gl/dDp7LBHqfjNsAVwGA'
+                  }
+                ]
+              }
+            ]
+           },
+          { key: '天神周邊', icon: '🍜', name: '天神站周邊', tips: '', description: '',
+            extras: [
+              {
+                links: [
+                  {
+                    label: '治一郎大丸福岡天神',
+                    text: '好吃布丁，大丸百貨B2F，10:00-20:00',
+                    url: 'https://maps.app.goo.gl/WoV36Gk15upcdEYx5'
+                  },
+                  {
+                    label: 'RINGO 天神地下街店',
+                    text: '蘋果派推推',
+                    url: 'https://goo.gl/maps/zrVYY5Q9aabmMt5N8'
+                  },
+                  {
+                    label: 'Pain Stock Tenjin',
+                    text: '08:00-19:00，在天神中央公園，明太子面包超讚',
+                    url: 'https://maps.app.goo.gl/Zx6RuPcxUyeZ4mew7'
+                  }
+                ]
+              }
+            ]
+          }
         ]
       },
       {
         title: '🎁 別講大道理 滿床伴手禮',
         locations: [
-          { key: '伴手禮', icon: '🎁', name: '博多伴手禮店', tips: '博多お土産店', description: '提供各式博多特色伴手禮，適合購買回國贈送親友。' },
-          { key: '博多一幸舍', icon: '🍜', name: '博多一幸舍 博多本店', tips: '博多一幸舎 博多本店', description: '另一家受歡迎的豚骨拉麵店，湯頭濃郁，適合喜愛重口味的旅客。' }
+          { key: '福岡機場ㄉ土產小町', icon: '🎁', name: '福岡機場ㄉ土產小町', tips: '', description: '提供各式博多特色伴手禮，適合購買回國贈送親友。' },
+          { key: '天神地下街的好料們', icon: '🍜', name: '天神地下街', tips: '', description: '',
+            extras: [
+              {
+                links: [
+                  {
+                    label: 'PRESS BUTTER SAND',
+                    text: '高級ㄟ奶油餅乾，東7番街，近天神站與西鐵福岡（天神）站連通道',
+                    url: ''
+                  },
+                  {
+                    label: 'MACCHA HOUSE 抹茶館',
+                    text: '抹茶讚讚，西11番街028区画，地下街中段，靠近西鐵連通道',
+                    url: ''
+                  },
+                  {
+                    label: '芋屋金次郎',
+                    text: '地瓜條，東11番街，近天神南出口',
+                    url: ''
+                  }
+                ]
+              }
+            ]
+           }
         ]
       }
     ];
@@ -212,7 +297,9 @@
                   <p>${location.description}</p>
                   ${(location.extras || []).map(extra => `
                     <div class="location-extra">
-                      <div class="location-extra-title">${extra.title}</div>
+                      ${extra.title ? (extra.link && !extra.linkLabel
+                        ? `<a class="location-extra-title location-extra-title-link" href="${extra.link}" target="_blank" rel="noopener noreferrer">${extra.title}</a>`
+                        : `<div class="location-extra-title">${extra.title}</div>`) : ''}
                       ${extra.text ? `<div class="location-extra-text">${extra.text}</div>` : ''}
                       ${extra.image ? `<img class="location-extra-image" src="${extra.image}" alt="${extra.imageAlt || extra.title}" loading="lazy" onclick="openImage(this)" title="點擊放大">` : ''}
                       ${extra.table ? `
@@ -222,8 +309,12 @@
                             <tbody>${extra.table.rows.map(row => `<tr>${row.map(cell => `<td>${cell}</td>`).join('')}</tr>`).join('')}</tbody>
                           </table>
                         </div>` : ''}
-                      ${extra.link ? `<a class="location-extra-link" href="${extra.link}" target="_blank" rel="noopener noreferrer">${extra.linkLabel || '查看相關資訊'}</a>` : ''}
-                      ${(extra.links || []).map(item => `<a class="location-extra-link" href="${item.url}" target="_blank" rel="noopener noreferrer">${item.label || '查看相關資訊'}</a>`).join('')}
+                      ${extra.link && (extra.linkLabel || !extra.title) ? `<a class="location-extra-link" href="${extra.link}" target="_blank" rel="noopener noreferrer">${extra.linkLabel || '查看相關資訊'}</a>` : ''}
+                      ${(extra.links || []).map(item => `
+                        <div class="location-extra-link-item">
+                          <a class="location-extra-link" href="${item.url}" target="_blank" rel="noopener noreferrer">${item.label || '查看相關資訊'}</a>
+                          ${item.text ? `<small class="location-extra-link-text">${item.text}</small>` : ''}
+                        </div>`).join('')}
                     </div>`).join('')}
                   ${mapUrl ? `<a class="location-map-link" href="${mapUrl}" target="_blank" rel="noopener noreferrer">📍 開啟導航</a>` : ''}
                 </div>
