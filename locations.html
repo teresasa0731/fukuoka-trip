@@ -15,6 +15,10 @@
   <main class="container">
     <p class="location-intro">📍 購物指南<br>請注意！是免稅不是免費！</p>
     <div id="location-list"></div>
+    <section class="booking-section">
+      <h2 class="booking-section-title">📁 訂房與預訂資訊</h2>
+      <div id="booking-list"></div>
+    </section>
   </main>
 
   <div id="image-lightbox" class="image-lightbox" onclick="closeImage(event)" aria-hidden="true">
@@ -275,6 +279,34 @@
       }
     ];
 
+    // 可放 PDF、網頁連結或圖片；將檔案放入 files/ 或 images/ 後填入路徑。
+    const BOOKING_DOCUMENTS = [
+      {
+        title: '機票訂位紀錄',
+        image: 'images/flight.jpg',
+      },
+      {
+        title: '飯店訂房確認',
+        text: '入住日期：9/15～9/18',
+        file: 'files/hotel-booking.pdf',
+        fileLabel: '📄 開啟訂房 PDF'
+      },
+      {
+        title: '0915 機場接送*1',
+        image: 'images/0915_car.png'
+      },
+      {
+        title: '0915 晚餐（水炊鍋）訂位確認',
+        image: 'images/0915_dinner.png'
+      },
+      {
+        title: '0917 kkday 北九州一日遊行程',
+        file: 'files/0917_kkday_voucher.pdf',
+        fileLabel: '開啟 KKday 行程 PDF'
+      }
+
+    ];
+
     function renderLocations() {
       const list = document.getElementById('location-list');
       list.innerHTML = LOCATION_GROUPS.map(group => `
@@ -323,6 +355,23 @@
         </section>`).join('');
     }
 
+    function renderBookingDocuments() {
+      const list = document.getElementById('booking-list');
+      if (BOOKING_DOCUMENTS.length === 0) {
+        list.innerHTML = '<div class="booking-empty">尚未加入預訂資料</div>';
+        return;
+      }
+
+      list.innerHTML = BOOKING_DOCUMENTS.map(item => `
+        <article class="booking-card">
+          <div class="booking-card-title">${item.title}</div>
+          ${item.text ? `<div class="booking-card-text">${item.text}</div>` : ''}
+          ${item.image ? `<img class="booking-image" src="${item.image}" alt="${item.imageAlt || item.title}" loading="lazy" onclick="openImage(this)" title="點擊放大">` : ''}
+          ${item.file ? `<a class="booking-file-link" href="${item.file}" target="_blank" rel="noopener noreferrer">${item.fileLabel || '📄 開啟檔案'}</a>` : ''}
+          ${item.url ? `<a class="booking-file-link" href="${item.url}" target="_blank" rel="noopener noreferrer">${item.urlLabel || '🔗 開啟相關網頁'}</a>` : ''}
+        </article>`).join('');
+    }
+
     function openImage(image) {
       const lightbox = document.getElementById('image-lightbox');
       const enlargedImage = document.getElementById('image-lightbox-content');
@@ -346,6 +395,7 @@
     });
 
     renderLocations();
+    renderBookingDocuments();
   </script>
 </body>
 </html>

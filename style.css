@@ -128,6 +128,14 @@ header h1 { font-size: 17px; font-weight: 700; letter-spacing: 0.05em; color: va
 .image-lightbox.active { display: flex; }
 .image-lightbox img { max-width: 100%; max-height: 88vh; object-fit: contain; border-radius: 10px; }
 .image-lightbox-close { position: absolute; top: 16px; right: 16px; width: 36px; height: 36px; border: none; border-radius: 50%; background: rgba(255,255,255,0.95); color: #111827; font-size: 22px; line-height: 1; cursor: pointer; }
+.booking-section { margin-top: 28px; padding-top: 20px; border-top: 2px solid var(--border-color); }
+.booking-section-title { margin-bottom: 12px; color: var(--text-main); font-size: 17px; }
+.booking-card, .booking-empty { margin-bottom: 10px; padding: 15px; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 14px; }
+.booking-empty { color: var(--text-sub); font-size: 14px; text-align: center; }
+.booking-card-title { color: var(--text-main); font-size: 15px; font-weight: 700; }
+.booking-card-text { margin-top: 5px; color: var(--text-sub); font-size: 14px; line-height: 1.65; white-space: pre-line; }
+.booking-image { display: block; width: min(240px, 100%); height: auto; margin-top: 10px; border: 1px solid var(--border-color); border-radius: 10px; cursor: zoom-in; }
+.booking-file-link { display: flex; width: fit-content; margin-top: 9px; color: var(--primary); font-size: 14px; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 
 /* Checklist */
 .checklist-group { margin-bottom: 18px; }
