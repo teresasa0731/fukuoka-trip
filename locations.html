@@ -43,7 +43,8 @@
             extras: [
               {
                 title: '福岡機場免稅店總覽',
-                link: 'https://fuk-ab.com.tw'
+                link: 'https://fuk-ab.com.tw',
+                text: '地點重點:\n國際線航廈 3F → 通過安檢 & 出境審查後 → 就是免稅店大區域\n整個免稅店像一個「L 形」商場：\n• 右側區域：美妝、香水品牌集中。\n• 左側區域：精品、時尚、日系品牌。\n• 中央區域：食品、伴手禮、酒類。'
               },
               {
                 title: '💰 省錢小撇步',
@@ -72,15 +73,42 @@
               }
             ]
           },
-          { key: '天神地下街', icon: '🛍️', name: '天神地下街', tips: '10:00-20:00', description: '就在飯店旁邊',
+          { key: '天神商圈', icon: '🛍️', name: '天神商圈', tips: '10:00-20:00', description: '飯店旁邊gogogo',
             extras: [
               {
+                title: '商圈周圍地圖',
+                image: 'images/tenjin_map.jpg'
+              },
+              {
                 title: '地下街地圖',
+                text: '天神地下街有 150 家以上的店鋪，建議先看地圖再決定要逛哪裡',
                 link: 'https://platinumaps.jp/d/tenchika?floor=B1',              
               },
               {
-                title: '特別的店',
-                text: '1. 免稅：消費含稅滿5,500円以上，出示護照即可辦理退稅\n2. 9折：部分店家出示護照即可享有9折優惠'
+                title: '天神周圍百貨',
+                text: '10:00-20:00',
+                links: [
+                  {
+                    label: 'Mina 百貨',
+                    text: '九州最大規模的 UNIQLO 與 LOFT ，以及九州唯一的全系列 GU 門市！',
+                    url: 'https://maps.app.goo.gl/a3hao3DAAzTPdR298'
+                  },
+                  {
+                    label: '大丸百貨 ＆ 福岡三越',
+                    text: '走高級路線',
+                    url: 'https://www.daimaru-fukuoka.jp.t.md.hp.transer.com/floorguide/search/'
+                  },
+                  {
+                    label: '福岡PARCO',
+                    text: '8F 天神 Chara Park 有超多熱門IP',
+                    url: 'https://tw.fukuoka.parco.jp/floor/'
+                  },
+                  {
+                    label: '岩田屋百貨',
+                    text: '下載 MITSUKOSHI ISETAN JAPAN APP 後到新館7樓退稅櫃檯掃QR開通95折卡\nB2茅乃舍',
+                    url: 'https://maps.app.goo.gl/6g5k7Z8X1v9y2Q4A9'
+                  }
+                ]
               }
             ]
           },
@@ -158,14 +186,6 @@
               }
             ]
           },
-          { key: '大國藥妝天神南店', icon: '💊', name: '大國藥妝 天神南店', tips: '10:05-23:50', description: '非處方藥（二類三類/日用品) 比較便宜',
-            extras: [
-              {
-                title: '💰 省錢小撇步',
-                image: 'images/goico_coupon.jpg'
-              }
-            ]
-          },
           { key: 'BicCamera', icon: '📷', name: 'BicCamera 天神', tips: '10:00-21:00', description: '建議優先逛2館',
             extras: [
               {
@@ -174,15 +194,12 @@
               }
             ]
           },
-          { key: 'Cosmos', icon: '💊', name: 'Cosmos 天神大丸前店', tips: '10:00-23:00', description: '非處方藥（二類三類/日用品) 比較便宜',
-            extras: [
-              {
-                title: '💰 省錢小撇步',
-                image: 'images/cosmos_coupon.jpg'
-              },
-            ]
-          },
-          { key: '松本清', icon: '💊', name: '松本清', tips: '', description: '一類藥/指定藥品',
+        ]
+      },
+      {
+        title: '💊 故人西辭黃鶴樓 日幣要花不能留',
+        locations:[
+          { key: '松本清', icon: '💊', name: '松本清', tips: '好多好多松本清', description: '一類藥/指定藥品',
             extras: [
               {
                 title: '💰 省錢小撇步',
@@ -200,13 +217,27 @@
                 image: 'images/ohga_coupon.jpg'
               }
             ]
-          }
-
-
+          },
+          { key: 'Cosmos', icon: '💊', name: 'Cosmos 天神大丸前店', tips: '10:00-23:00', description: '非處方藥（二類三類/日用品) 比較便宜',
+            extras: [
+              {
+                title: '💰 省錢小撇步',
+                image: 'images/cosmos_coupon.jpg'
+              },
+            ]
+          },
+          { key: '大國藥妝天神南店', icon: '💊', name: '大國藥妝 天神南店', tips: '10:05-23:50', description: '非處方藥（二類三類/日用品) 比較便宜',
+            extras: [
+              {
+                title: '💰 省錢小撇步',
+                image: 'images/goico_coupon.jpg'
+              }
+            ]
+          },
         ],
         image: 'images/medi.jpg',
         imageAlt: '藥妝與免稅資訊',
-        imageLabel: '查看藥妝免稅圖',
+        imageLabel: '查看藥妝逛街地圖',
       },
       {
         title: '🍜 底哩雪斯',
@@ -224,6 +255,11 @@
                     label: 'Dacomecca 麵包店',
                     text: '07:00-19:00',
                     url: 'https://maps.app.goo.gl/ENUhjnhfs7C15UKi8'
+                  },
+                  {
+                    label: '努努鶏 博多マイング',
+                    text: '09:00-21:00',
+                    url: 'https://maps.app.goo.gl/5wQmwBTGFGpfpCmF6'
                   }
                 ]
               }
@@ -241,27 +277,27 @@
                   {
                     label: 'RINGO 天神地下街店',
                     text: '蘋果派推推',
-                    url: 'https://goo.gl/maps/zrVYY5Q9aabmMt5N8'
+                    url: 'https://maps.app.goo.gl/DQGydw6aXCiRx4zN9'
                   },
                   {
-                    label: '努努雞',
-                    text: '冷冷吃最好吃，推薦配啤酒，在福岡PARCO百貨B1F的THE天神',
-                    url: ''
+                    label: '努努雞(PARCO百貨B1的THE天神)',
+                    text: '冷冷吃最好吃，推薦配啤酒，讚',
+                    url: 'https://maps.app.goo.gl/ec3NdkyZKaJ9Zyfu5'
                   },
                   {
                     label: 'PRESS BUTTER SAND',
-                    text: '高級ㄟ奶油餅乾，東7番街，近天神站與西鐵福岡（天神）站連通道',
-                    url: ''
+                    text: '高級ㄟ奶油餅乾，東7番街，近天神站與西鐵福岡（天神）站連通道\n機場也有分店',
+                    url: 'https://maps.app.goo.gl/Y6rmFzSYkpHaVSRdA'
                   },
                   {
                     label: 'MACCHA HOUSE 抹茶館',
                     text: '抹茶讚讚，西11番街028区画，地下街中段，靠近西鐵連通道',
-                    url: ''
+                    url: 'https://maps.app.goo.gl/MsJfKPvc2vjuwM919'
                   },
                   {
                     label: '芋屋金次郎',
-                    text: '地瓜條，東11番街，近天神南出口',
-                    url: ''
+                    text: '現炸地瓜條，東11番街，近天神南出口',
+                    url: 'https://maps.app.goo.gl/JEhFyrv7BDJAk9M1A'
                   }
                 ]
               }

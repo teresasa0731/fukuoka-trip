@@ -64,7 +64,7 @@
         <div class="time">08:00</div>
         <div class="card-title">福岡我來啦！</div>
         <div class="tags"><span class="tag tag-集合">集合：08:00 桃機T1</span></div>
-        <button class="details-btn" onclick="openModal('福岡我來啦！', '青春沒有售價 桃機第一航廈', '桃機T1')">🔍 See Details</button>
+        <button class="details-btn" onclick="openModal('福岡我來啦！', '忍一時風平浪靜 退一步桃機出境', '桃機T1')">🔍 See Details</button>
       </div>
 
       <div class="card">
@@ -72,7 +72,7 @@
         <div class="card-title">✈️ 桃機–福岡 JX840</div>
         <div class="tags"><span class="tag tag-移動中">移動中</span></div>
         <div class="route-info">⏱ 預計飛行時間 2.5 hr</div>
-        <button class="details-btn" onclick="openModal('下機前請確認Visit Japan & sim卡', '退一步海闊天空 進一步星宇航空 JX840')">🔍 See Details</button>
+        <button class="details-btn" onclick="openModal('下機前請再次確認 Visit Japan & esim', '退一步海闊天空 進一步星宇航空 JX840')">🔍 See Details</button>
       </div>
 
       <div class="card">
@@ -88,7 +88,7 @@
         <div class="card-title">水果派 Qu'il fait bon</div>
         <div class="tags"><span class="tag tag-飲食">飲食</span><span class="tag tag-彈性行程">彈性行程</span></div>
         <div class="route-info">🚶 步行 3 min | ☕︎ 停留 30 min</div>
-        <button class="details-btn" onclick="openModal('法式水果塔風格，Qu\'il fait bon 是法文，「多麼好阿」的意思', '啊姆啊姆啊姆', 'QuilFaitBon')">🔍 See Details</button>
+        <button class="details-btn" onclick="openModal('法式水果塔風格，Qu\'il fait bon 是法文，「多麼好啊」的意思', '啊姆啊姆啊姆', 'QuilFaitBon')">🔍 See Details</button>
       </div>
 
       <div class="card">
@@ -99,10 +99,10 @@
 
       <div class="card">
         <div class="time">16:00-18:30</div>
-        <div class="card-title">天神地下街</div>
+        <div class="card-title">自由探索天神商圈</div>
         <div class="tags"><span class="tag tag-購物">購物</span><span class="tag tag-彈性行程">彈性行程</span></div>
         <div class="route-info">🚶 步行 1 min</div>
-        <button class="details-btn" onclick="openModal('天神地下街初次場勘', '自由時間\n詳見購物指南', '天神地下街')">🔍 See Details</button>
+        <button class="details-btn" onclick="openModal('初次場勘購物天堂', '附近有非常多百貨公司＆小店，詳見購物指南', '天神地下街', '', '', 'images/tenjin_map｀～.jpg')">🔍 See Details</button>
       </div>
 
       <div class="card">
@@ -151,7 +151,7 @@
         <div class="card-title">太宰府天滿宮 & 太宰府前表參道</div>
         <div class="tags"><span class="tag tag-觀光">觀光</span></div>
         <div class="route-info">☕︎ 停留 1.5 hr</div>
-        <button class="details-btn" onclick="openModal('太宰府天滿宮 & 表參道', '平安時代的學者與政治家菅原道真（學問之神），大概就是像文昌帝君一樣厲害。\n鄉野傳說：御神牛像，據說只要摸摸牛頭就能獲得智慧\n表參道：現烤梅枝餅、隈研吾設計的星巴克、USAGI coffee 喝咖灰、FUKUYA太宰府店可以吃茶泡飯', '太宰府')">🔍 See Details</button>
+        <button class="details-btn" onclick="openModal('太宰府天滿宮 & 表參道', '平安時代的學者與政治家菅原道真（學問之神），大概就是像文昌帝君一樣厲害。\n(p.s. 御本殿工事中 qq)\n鄉野傳說：御神牛像，據說只要摸摸牛頭就能獲得智慧\n表參道：現烤梅枝餅、隈研吾設計的星巴克、USAGI coffee 喝咖灰、FUKUYA太宰府店可以吃茶泡飯', '太宰府')">🔍 See Details</button>
       </div>
 
       <div class="card">
@@ -313,8 +313,7 @@
 
       <div class="card">
         <div class="time">17:00</div>
-        <div class="card-title">福岡機場報到</div>
-        <button class="details-btn" onclick="openModal('長榮航空櫃檯報到', '辦理報到、托運行李、安檢')">🔍 See Details</button>
+        <div class="card-title">長榮航空櫃檯報到、托運行李、安檢</div>
       </div>
 
       <div class="card">
@@ -350,6 +349,7 @@
         <a id="modal-map-link" href="#" target="_blank" rel="noopener noreferrer" class="map-link">📍 開啟導航</a>
       </div>
       <div id="modal-note" class="note-box">個人的詳細筆記...</div>
+      <img id="modal-detail-image" class="modal-detail-image" src="" alt="">
       <div id="modal-resource-links" class="resource-links"></div>
     </div>
   </div>
@@ -373,8 +373,8 @@
       event.target.classList.add('active');
     }
 
-    // 格式：openModal(標題, 備註, 地圖 key, 選用資料網址, 選用連結文字)
-    function openModal(title, note, mapKey, resourceUrl, resourceLabel) {
+    // 格式：openModal(標題, 備註, 地圖 key, 選用資料網址, 選用連結文字, 選用圖片)
+    function openModal(title, note, mapKey, resourceUrl, resourceLabel, imageUrl) {
       document.getElementById('modal-title').innerText = title || '景點資訊';
 
       const noteBox = document.getElementById('modal-note');
@@ -404,6 +404,17 @@
         link.innerText = label || '📄 查看相關資料';
         resourceLinks.appendChild(link);
       });
+
+      const detailImage = document.getElementById('modal-detail-image');
+      if (typeof imageUrl === 'string' && imageUrl.trim() !== '') {
+        detailImage.src = imageUrl;
+        detailImage.alt = `${title || '景點'}圖面`;
+        detailImage.style.display = 'block';
+      } else {
+        detailImage.removeAttribute('src');
+        detailImage.alt = '';
+        detailImage.style.display = 'none';
+      }
       
       const mapBtn = document.getElementById('modal-map-link');
       

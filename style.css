@@ -98,6 +98,7 @@ header h1 { font-size: 17px; font-weight: 700; letter-spacing: 0.05em; color: va
 .map-link { display: inline-flex; color: var(--primary); font-size: 12px; font-weight: 500; text-decoration: underline; text-underline-offset: 3px; }
 .resource-links { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
 .resource-link { display: inline-flex; width: fit-content; color: var(--primary); font-size: 12.5px; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.modal-detail-image { display: none; width: 100%; height: auto; margin: 12px 0; border: 1px solid var(--border-color); border-radius: 10px; }
 
 /* 購物指南 */
 .location-intro { margin-bottom: 16px; color: var(--text-sub); font-size: 12.5px; line-height: 1.65; }
