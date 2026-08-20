@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>福岡家族之旅 - 行李清單</title>
+  <title>福岡家族之旅 - memo</title>
   <link rel="stylesheet" href="style.css">
   <meta name="apple-mobile-web-app-capable" content="yes">
 </head>
@@ -15,29 +15,12 @@
 
   <main class="container">
     <div class="card">
-      <div class="card-title">🧳 建議行李備忘錄</div>
-      <p style="font-size: 14px; color: var(--text-sub); margin-bottom: 12px;">勾選狀態會存在手機</p>
-
-      <div class="checklist-group">
-        <h3>📄 證件與重要物品</h3>
-        <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"> <span>護照 (確認有效期 > 6 個月，沒有就沒救啦！)</span></label>
-        <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"> <span>Visit Japan Web QR Code 截圖</span></label>
-        <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"> <span>日本上網 SIM 卡 / eSIM</span></label>
-      </div>
-
-      <div class="checklist-group">
-        <h3>🔌 電子設備</h3>
-        <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"> <span>行動電源 (要隨身攜帶登機)</span></label>
-        <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"> <span>手機充電線 & 充電頭</span></label>
-      </div>
-
-      <div class="checklist-group">
-        <h3>💊 個人用品與藥品</h3>
-        <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"> <span>個人常備藥物 (腸胃藥/止痛藥)</span></label>
-        <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"> <span>好走的運動鞋 / 慢跑鞋</span></label>
-        <label class="check-item"><input type="checkbox" onchange="toggleCheck(this)"> <span>雨具 / 折疊傘</span></label>
-      </div>
+      <div class="card-title">shopping 小筆記</div>
+      <p class="memo-hint">內容只會儲存在你的手機</p>
+      <label class="memo-label" for="travel-memo">哩哩摳摳</label>
+      <textarea id="travel-memo" class="memo-textarea" rows="9" placeholder="Anything u want!" oninput="saveMemo()"></textarea>
     </div>
+
 
     <div class="card">
       <div class="card-title">備忘錄</div>
@@ -51,7 +34,7 @@
   <nav class="bottom-nav">
     <a href="index.html" class="nav-item"><span class="icon">🏠</span><span>首頁</span></a>
     <a href="itinerary.html" class="nav-item"><span class="icon">📅</span><span>行程</span></a>
-    <a href="checklist.html" class="nav-item active"><span class="icon">🧳</span><span>行李清單</span></a>
+    <a href="checklist.html" class="nav-item active"><span class="icon">📝</span><span>memo</span></a>
     <a href="locations.html" class="nav-item"><span class="icon">📍</span><span>購物指南</span></a>
 
   </nav>
