@@ -24,6 +24,8 @@ const MAP_LINKS = {
   "北九州Outlet": "https://maps.app.goo.gl/4jLByJxqrkE5VmLMA",
   "皿倉山夜景": "https://maps.app.goo.gl/yq4b5fFym5vxSXmV8",
 
+  "Tonkatsu Wakaba": "https://maps.app.goo.gl/aHoAq83jdRyqjV9AA",
+
   // 周邊景點
   "唐吉訶德福岡天神本店": "https://maps.app.goo.gl/dxv3Gg92Yoa4Z8YD9",
   "大國藥妝天神南店": "https://maps.app.goo.gl/azhwetfPw8KXfMFi6",
