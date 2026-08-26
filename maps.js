@@ -27,7 +27,7 @@ const MAP_LINKS = {
   "Tonkatsu Wakaba": "https://maps.app.goo.gl/aHoAq83jdRyqjV9AA",
 
   // 周邊景點
-  "唐吉訶德福岡天神本店": "https://maps.app.goo.gl/dxv3Gg92Yoa4Z8YD9",
+  "唐吉訶德 福岡天神本店": "https://maps.app.goo.gl/dxv3Gg92Yoa4Z8YD9",
   "大國藥妝天神南店": "https://maps.app.goo.gl/azhwetfPw8KXfMFi6",
   "大賀藥局天神地下街店": "https://maps.app.goo.gl/UErn2Rrdcopnj1Nz5",
   "BicCamera": "https://share.google/sNV3m5RcRUmuqvVmX",
