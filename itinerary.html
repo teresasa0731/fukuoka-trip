@@ -2,7 +2,7 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>福岡家族之旅 - 行程</title>
   <link rel="stylesheet" href="style.css">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -61,9 +61,9 @@
       </div>
 
       <div class="card">
-        <div class="time">08:00</div>
+        <div class="time">06:30</div>
         <div class="card-title">福岡我來啦！</div>
-        <div class="tags"><span class="tag tag-集合">集合：08:00 桃機T1</span></div>
+        <div class="tags"><span class="tag tag-集合">集合至桃機T1</span></div>
         <button class="details-btn" onclick="openModal('9:35 的班機，請大家準時到達！', '忍一時風平浪靜 退一步桃機出境', '桃機T1')">🔍 See Details</button>
       </div>
 
@@ -352,9 +352,15 @@
         <a id="modal-map-link" href="#" target="_blank" rel="noopener noreferrer" class="map-link">📍 開啟導航</a>
       </div>
       <div id="modal-note" class="note-box">個人的詳細筆記...</div>
-      <img id="modal-detail-image" class="modal-detail-image" src="" alt="">
+      <img id="modal-detail-image" class="modal-detail-image" src="" alt="" onclick="openImage(this)" title="點擊放大">
       <div id="modal-resource-links" class="resource-links"></div>
     </div>
+  </div>
+
+  <!-- 圖片放大燈箱 -->
+  <div id="image-lightbox" class="image-lightbox" onclick="closeImage(event)" aria-hidden="true">
+    <button class="image-lightbox-close" type="button" onclick="closeImage()" aria-label="關閉圖片">×</button>
+    <img id="image-lightbox-content" src="" alt="">
   </div>
 
   <!-- 底部選單 -->
@@ -443,6 +449,26 @@
     function closeModal() {
       document.getElementById('details-modal').classList.remove('active');
     }
+
+    function openImage(image) {
+      const lightbox = document.getElementById('image-lightbox');
+      const enlargedImage = document.getElementById('image-lightbox-content');
+      enlargedImage.src = image.src;
+      enlargedImage.alt = image.alt;
+      lightbox.classList.add('active');
+      lightbox.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeImage(event) {
+      if (event && event.target.id !== 'image-lightbox') return;
+      const lightbox = document.getElementById('image-lightbox');
+      lightbox.classList.remove('active');
+      lightbox.setAttribute('aria-hidden', 'true');
+    }
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') closeImage();
+    });
   </script>
 </body>
 </html>

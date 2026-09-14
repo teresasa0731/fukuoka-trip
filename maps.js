@@ -30,6 +30,6 @@ const MAP_LINKS = {
   "唐吉訶德 福岡天神本店": "https://maps.app.goo.gl/dxv3Gg92Yoa4Z8YD9",
   "大國藥妝天神南店": "https://maps.app.goo.gl/azhwetfPw8KXfMFi6",
   "大賀藥局天神地下街店": "https://maps.app.goo.gl/UErn2Rrdcopnj1Nz5",
-  "BicCamera": "https://share.google/sNV3m5RcRUmuqvVmX",
+  "BicCamera": "https://maps.app.goo.gl/ePQBJ2WHEu6B2vp36",
   "Cosmos": "https://maps.app.goo.gl/szix9FW3Rkpy4ZHS6"
 };
